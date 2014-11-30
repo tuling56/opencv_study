@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opencv_storage>
+<!-- test xml file -->
+<Tagset type_id="id_size">
+  <!-- text area info -->
+  <IMG>PicVideo//test_o2(1).JPG</IMG>
+  <Height>18</Height>
+  <Width>18</Width>
+  <areas_num>4</areas_num>
+  <area_coor>53 389 398 427</area_coor>
+  <area_coor>409 389 497 427</area_coor>
+  <area_coor>36 437 132 455</area_coor>
+  <area_coor>235 438 439 456</area_coor>
+  <area_coor>481 438 629 456</area_coor>	
+</Tagset>
+
+</opencv_storage>

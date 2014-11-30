@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\ViBe">
+      <UniqueIdentifier>{2827ff83-9809-4a3a-ae4e-32cbe39c3a9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Opticalflow">
+      <UniqueIdentifier>{434b5965-da44-438a-a305-09bc4cfbc387}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Camshift">
+      <UniqueIdentifier>{2d865ffc-72db-4a1d-a673-5f17a37aefc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\GMM">
+      <UniqueIdentifier>{15fc0e6c-10f9-463e-9d5a-9d5d0e2f1dfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Diff">
+      <UniqueIdentifier>{0bb90e4f-2c4a-48c6-a054-20745153eb24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\背景建模">
+      <UniqueIdentifier>{78e33cf2-ebcf-4436-a89e-9a1a58fa91da}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="backdiff\Diff1.cpp">
+      <Filter>源文件\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="backdiff\Diff2.cpp">
+      <Filter>源文件\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="MoG\GMM_main.cpp">
+      <Filter>源文件\GMM</Filter>
+    </ClCompile>
+    <ClCompile Include="MoG\MoG_BGS.cpp">
+      <Filter>源文件\GMM</Filter>
+    </ClCompile>
+    <ClCompile Include="opticalflow\opticalflowFarneback.cpp">
+      <Filter>源文件\Opticalflow</Filter>
+    </ClCompile>
+    <ClCompile Include="opticalflow\simpleflow_demo.cpp">
+      <Filter>源文件\Opticalflow</Filter>
+    </ClCompile>
+    <ClCompile Include="ViBe\ViBe.cpp">
+      <Filter>源文件\ViBe</Filter>
+    </ClCompile>
+    <ClCompile Include="ViBe\ViBe_main.cpp">
+      <Filter>源文件\ViBe</Filter>
+    </ClCompile>
+    <ClCompile Include="bgrestore\bg_restore.cpp">
+      <Filter>源文件\背景建模</Filter>
+    </ClCompile>
+    <ClCompile Include="backdiff\Diff_Mat.cpp">
+      <Filter>源文件\Diff</Filter>
+    </ClCompile>
+    <ClCompile Include="backdiff\Diff3.cpp">
+      <Filter>源文件\Diff</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="track.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

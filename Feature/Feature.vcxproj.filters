@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="源文件\corner">
+      <UniqueIdentifier>{d91f1cd8-678d-4020-b958-1d9568beab98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\histgram">
+      <UniqueIdentifier>{2b5b056e-425f-4e7e-9b78-06cf969523e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\garbor">
+      <UniqueIdentifier>{9d74e2a6-2cf0-41d4-865b-26a28792fd20}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="corner\sift_feature.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\surf_feature.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\surf_feature_opencv.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\harris_corner_detect.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\susan_corner_detect.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\fast_corner_detect.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\fast_feature_opencv.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\calcDrawHist.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\calcHistDistance.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\equalizeHist.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\mutiDim.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\oneDim.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\histgram_main.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\firecorner.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Feature.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
