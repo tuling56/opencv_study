@@ -45,6 +45,7 @@ int color_cluster(char *filename,int nCuster);
 
 //通道分离和合并
 void channel_split_merge();
+int channels_split_merge_mat();
  
 //xml读写
 int xml_read_write(void);

@@ -1,3 +1,13 @@
+/************************************************************************
+* Copyright(c) 2014 tuling56
+*
+* File:	channels_split_merge_mat.cpp
+* Brief: 各通道合图显示
+* Source:http://wenku.baidu.com/link?url=u4sqa8GP8pw9Yj9js7ojH6xgzzAaILf6feE8fy2UuGnMX0rdWP-vL0Gj6ubZuuyji7VqhPCbpLT9-xP--800KNEueU0908ImXgxU0mfmE2O
+* Status: 
+* Date:	[11/30/2014 jmy]
+************************************************************************/
+
 #include <cv.h>
 #include <highgui.h> 
 #include <iostream>
@@ -6,17 +16,20 @@
 using namespace cv; 
 using namespace std;   
 
-int main( int argc, char** argv )
+int channels_split_merge_mat()
 {   
+	/*
 	FreeConsole();     //Hide the CMD window  
 	if( argc != 2)   
 	{    
 		 std::cout <<"请输入需要加载的文件!" << std::endl;   
 	     return -1;  
 	}  
+	*/
 	//读取图像 
 	Mat image;   
-	char * imageName = argv[1];   
+	//char * imageName = argv[1]; 
+	char *imageName="samples/colorreduce.jpg";
 	image = imread(imageName, CV_LOAD_IMAGE_COLOR);// Read the file  
 	if(! image.data )   
 	{ 

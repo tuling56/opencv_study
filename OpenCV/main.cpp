@@ -1,6 +1,6 @@
 #include "opencv.h"
 
-int main(int argc,char*argv[])
+int main_test(int argc,char*argv[])
 {
 	//读取文件夹内的指定格式的所有文件
 	//char filename[50];
@@ -48,10 +48,11 @@ int main(int argc,char*argv[])
 	//roi_merge();
 	
 	/*颜色聚类,颜色约减*/
-	color_cluster(imagename,3);
+	//color_cluster(imagename,3);
 		
 	/*通道分离和合并*/
 	//channel_split_merge();
+	//channels_split_merge_mat();
 
 	/*xml读写*/
 	//xml_read_write();

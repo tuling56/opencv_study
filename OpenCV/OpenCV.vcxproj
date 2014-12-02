@@ -76,32 +76,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="channels_split_merge_mat.cpp" />
-    <ClCompile Include="color_cluster.cpp" />
-    <ClCompile Include="compare_img.cpp" />
+    <ClCompile Include="channels\chanel_split_merge.cpp" />
+    <ClCompile Include="channels\channels_split_merge_mat.cpp" />
+    <ClCompile Include="channels\OpenCVseedfillingcol.cpp" />
+    <ClCompile Include="channels\SobelColor.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="ROI\roi.cpp" />
     <ClCompile Include="ROI\roi_mat.cpp" />
     <ClCompile Include="ROI\roi_merge.cpp" />
-    <ClCompile Include="xml.cpp" />
-    <ClCompile Include="xml_read_write.cpp" />
-    <ClCompile Include="人脸检测和行人检测\face_detection.cpp" />
-    <ClCompile Include="人脸检测和行人检测\walker_detection.cpp" />
-    <ClCompile Include="基础\BrightContrastAdjust.cpp" />
-    <ClCompile Include="基础\CalcCovariance.cpp" />
-    <ClCompile Include="基础\CompareImg.cpp" />
-    <ClCompile Include="基础\CreateSaveCopyImg.cpp" />
-    <ClCompile Include="基础\DataStructure.cpp" />
-    <ClCompile Include="基础\LoadShowImg.cpp" />
-    <ClCompile Include="基础\ReadSaveRGB.cpp" />
-    <ClCompile Include="基础\rgb2hsv.cpp" />
-    <ClCompile Include="基础\visit_elem_iplimag.cpp" />
-    <ClCompile Include="基础\visit_elem_mat.cpp" />
-    <ClCompile Include="视频读取和写入\images_to_video.cpp" />
-    <ClCompile Include="视频读取和写入\video1.cpp" />
-    <ClCompile Include="视频读取和写入\videolabel.cpp" />
-    <ClCompile Include="视频读取和写入\read_video_info.cpp" />
-    <ClCompile Include="视频读取和写入\read_write_video.cpp" />
+    <ClCompile Include="test\colorReduce.cpp" />
+    <ClCompile Include="test\saltImage.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opencv.h" />

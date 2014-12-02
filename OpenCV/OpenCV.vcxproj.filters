@@ -16,23 +16,23 @@
     <Filter Include="源文件\Source">
       <UniqueIdentifier>{a58ec0ee-a31e-48d9-879b-c02972203829}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Source\ROI">
-      <UniqueIdentifier>{5cf08ea7-96d7-49e7-9824-d2ec0d1348d2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\基础">
-      <UniqueIdentifier>{b33e2c1a-d99b-40d4-8bba-4059d65d1172}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\检测">
-      <UniqueIdentifier>{d1599c25-b7ba-49c3-adf7-a166509f0d8f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\视频">
-      <UniqueIdentifier>{6fe37752-9a13-4843-9f74-a24cb6d68124}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\XML">
-      <UniqueIdentifier>{69a940b9-573e-4d49-8187-a5d8e1327af8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Source\channels">
       <UniqueIdentifier>{1f223718-869b-4dd4-9c47-408117f1b730}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Source\detection">
+      <UniqueIdentifier>{d76b7023-0b6e-4dd6-ae56-ddf77fa20991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Source\base">
+      <UniqueIdentifier>{98c99c30-0ae1-4dc3-9b34-e303458e48d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Source\video">
+      <UniqueIdentifier>{75efa6cf-f4e3-4933-94a6-334787de04af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Source\roi">
+      <UniqueIdentifier>{5cf08ea7-96d7-49e7-9824-d2ec0d1348d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Source\test">
+      <UniqueIdentifier>{0a7f6215-91b2-4199-a1ba-a1e29130ba6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -40,79 +40,31 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="ROI\roi.cpp">
-      <Filter>源文件\Source\ROI</Filter>
-    </ClCompile>
-    <ClCompile Include="视频读取和写入\read_write_video.cpp">
-      <Filter>源文件\Source\视频</Filter>
-    </ClCompile>
-    <ClCompile Include="人脸检测和行人检测\face_detection.cpp">
-      <Filter>源文件\Source\检测</Filter>
-    </ClCompile>
-    <ClCompile Include="人脸检测和行人检测\walker_detection.cpp">
-      <Filter>源文件\Source\检测</Filter>
-    </ClCompile>
-    <ClCompile Include="视频读取和写入\read_video_info.cpp">
-      <Filter>源文件\Source\视频</Filter>
-    </ClCompile>
-    <ClCompile Include="视频读取和写入\images_to_video.cpp">
-      <Filter>源文件\Source\视频</Filter>
+      <Filter>源文件\Source\roi</Filter>
     </ClCompile>
     <ClCompile Include="ROI\roi_mat.cpp">
-      <Filter>源文件\Source\ROI</Filter>
+      <Filter>源文件\Source\roi</Filter>
     </ClCompile>
     <ClCompile Include="ROI\roi_merge.cpp">
-      <Filter>源文件\Source\ROI</Filter>
+      <Filter>源文件\Source\roi</Filter>
     </ClCompile>
-    <ClCompile Include="基础\BrightContrastAdjust.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\CalcCovariance.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\CompareImg.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\CreateSaveCopyImg.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\LoadShowImg.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\ReadSaveRGB.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\rgb2hsv.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\visit_elem_iplimag.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\visit_elem_mat.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="视频读取和写入\videolabel.cpp">
-      <Filter>源文件\Source\视频</Filter>
-    </ClCompile>
-    <ClCompile Include="视频读取和写入\video1.cpp">
-      <Filter>源文件\Source\视频</Filter>
-    </ClCompile>
-    <ClCompile Include="xml.cpp">
-      <Filter>源文件\Source\XML</Filter>
-    </ClCompile>
-    <ClCompile Include="xml_read_write.cpp">
-      <Filter>源文件\Source\XML</Filter>
-    </ClCompile>
-    <ClCompile Include="基础\DataStructure.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="color_cluster.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="compare_img.cpp">
-      <Filter>源文件\Source\基础</Filter>
-    </ClCompile>
-    <ClCompile Include="channels_split_merge_mat.cpp">
+    <ClCompile Include="channels\chanel_split_merge.cpp">
       <Filter>源文件\Source\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="channels\OpenCVseedfillingcol.cpp">
+      <Filter>源文件\Source\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="channels\channels_split_merge_mat.cpp">
+      <Filter>源文件\Source\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="channels\SobelColor.cpp">
+      <Filter>源文件\Source\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="test\saltImage.cpp">
+      <Filter>源文件\Source\test</Filter>
+    </ClCompile>
+    <ClCompile Include="test\colorReduce.cpp">
+      <Filter>源文件\Source\test</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

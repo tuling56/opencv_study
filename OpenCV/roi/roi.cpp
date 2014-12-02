@@ -28,7 +28,7 @@ int ROIimg(char*filename)
 	 cvShowImage("ROI",pDest);
 	 cvSaveImage("PicVideo/Roi.jpg",pDest);//±£´æÄ¿±êÍ¼Ïñ
 	 
-	 color_cluster("PicVideo/Roi.jpg",2);
+	 //color_cluster("PicVideo/Roi.jpg",2);
 	 cvWaitKey(0);
 
 }
