@@ -372,7 +372,7 @@ void colorReduce13(cv::Mat &image, int div=64) {
 #define NTESTS 14
 #define NITERATIONS 20
 
-int main()
+int colorReduce_main()
 {
 	int64 t[NTESTS],tinit;
 	cv::Mat image1;

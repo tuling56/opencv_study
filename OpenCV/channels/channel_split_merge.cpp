@@ -5,10 +5,8 @@ using namespace std;
 void channel_split_merge()
 {
 	IplImage*input=0;
-
-	if ((input=cvLoadImage("PicVideo//channel.jpg",1))!=0)
+	if ((input=cvLoadImage("samples//channel.jpg",1))!=0)
 	{
-
 		IplImage* rImg=cvCreateImage(cvGetSize(input),IPL_DEPTH_8U,1);    
 		IplImage* gImg=cvCreateImage(cvGetSize(input),IPL_DEPTH_8U,1);    
 		IplImage* bImg=cvCreateImage(cvGetSize(input),IPL_DEPTH_8U,1);
@@ -76,3 +74,9 @@ void channel_split_merge()
 	}
 }
 
+//¹¦ÄÜ²âÊÔÇø
+//int main()
+//{
+//	channel_split_merge();
+//	return 0;
+//}

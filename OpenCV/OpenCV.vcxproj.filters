@@ -13,58 +13,70 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="源文件\Source">
-      <UniqueIdentifier>{a58ec0ee-a31e-48d9-879b-c02972203829}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\channels">
-      <UniqueIdentifier>{1f223718-869b-4dd4-9c47-408117f1b730}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\detection">
-      <UniqueIdentifier>{d76b7023-0b6e-4dd6-ae56-ddf77fa20991}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Source\base">
+    <Filter Include="源文件\base">
       <UniqueIdentifier>{98c99c30-0ae1-4dc3-9b34-e303458e48d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Source\video">
-      <UniqueIdentifier>{75efa6cf-f4e3-4933-94a6-334787de04af}</UniqueIdentifier>
+    <Filter Include="源文件\channels">
+      <UniqueIdentifier>{1f223718-869b-4dd4-9c47-408117f1b730}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Source\roi">
+    <Filter Include="源文件\detection">
+      <UniqueIdentifier>{d76b7023-0b6e-4dd6-ae56-ddf77fa20991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\roi">
       <UniqueIdentifier>{5cf08ea7-96d7-49e7-9824-d2ec0d1348d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Source\test">
+    <Filter Include="源文件\test">
       <UniqueIdentifier>{0a7f6215-91b2-4199-a1ba-a1e29130ba6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\video">
+      <UniqueIdentifier>{75efa6cf-f4e3-4933-94a6-334787de04af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="ROI\roi.cpp">
-      <Filter>源文件\Source\roi</Filter>
+      <Filter>源文件\roi</Filter>
     </ClCompile>
     <ClCompile Include="ROI\roi_mat.cpp">
-      <Filter>源文件\Source\roi</Filter>
+      <Filter>源文件\roi</Filter>
     </ClCompile>
     <ClCompile Include="ROI\roi_merge.cpp">
-      <Filter>源文件\Source\roi</Filter>
-    </ClCompile>
-    <ClCompile Include="channels\chanel_split_merge.cpp">
-      <Filter>源文件\Source\channels</Filter>
+      <Filter>源文件\roi</Filter>
     </ClCompile>
     <ClCompile Include="channels\OpenCVseedfillingcol.cpp">
-      <Filter>源文件\Source\channels</Filter>
+      <Filter>源文件\channels</Filter>
     </ClCompile>
     <ClCompile Include="channels\channels_split_merge_mat.cpp">
-      <Filter>源文件\Source\channels</Filter>
+      <Filter>源文件\channels</Filter>
     </ClCompile>
     <ClCompile Include="channels\SobelColor.cpp">
-      <Filter>源文件\Source\channels</Filter>
+      <Filter>源文件\channels</Filter>
     </ClCompile>
     <ClCompile Include="test\saltImage.cpp">
-      <Filter>源文件\Source\test</Filter>
+      <Filter>源文件\test</Filter>
     </ClCompile>
     <ClCompile Include="test\colorReduce.cpp">
-      <Filter>源文件\Source\test</Filter>
+      <Filter>源文件\test</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="base\msubstract.cpp">
+      <Filter>源文件\base</Filter>
+    </ClCompile>
+    <ClCompile Include="base\readImg.cpp">
+      <Filter>源文件\base</Filter>
+    </ClCompile>
+    <ClCompile Include="channels\channel_split_merge.cpp">
+      <Filter>源文件\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="channels\rgb2hsv.cpp">
+      <Filter>源文件\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="channels\getRGB.cpp">
+      <Filter>源文件\channels</Filter>
+    </ClCompile>
+    <ClCompile Include="base\visit_elem_mat.cpp">
+      <Filter>源文件\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

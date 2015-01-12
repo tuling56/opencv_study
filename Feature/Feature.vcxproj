@@ -50,6 +50,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -79,20 +80,24 @@
     <ClCompile Include="corner\fast_feature_opencv.cpp" />
     <ClCompile Include="corner\firecorner.cpp" />
     <ClCompile Include="corner\harris_corner_detect.cpp" />
+    <ClCompile Include="corner\main_corner.cpp" />
     <ClCompile Include="corner\sift_feature.cpp" />
     <ClCompile Include="corner\surf_feature.cpp" />
     <ClCompile Include="corner\surf_feature_opencv.cpp" />
     <ClCompile Include="corner\susan_corner_detect.cpp" />
     <ClCompile Include="histgram\calcDrawHist.cpp" />
     <ClCompile Include="histgram\calcHistDistance.cpp" />
+    <ClCompile Include="histgram\colorHistgram.cpp" />
     <ClCompile Include="histgram\equalizeHist.cpp" />
-    <ClCompile Include="histgram\histgram_main.cpp" />
+    <ClCompile Include="histgram\main_histgram.cpp" />
     <ClCompile Include="histgram\mutiDim.cpp" />
     <ClCompile Include="histgram\oneDim.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="corner\corner.h" />
     <ClInclude Include="Feature.h" />
+    <ClInclude Include="histgram\histgram.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

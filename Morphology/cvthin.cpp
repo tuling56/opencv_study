@@ -6,6 +6,7 @@
 
 #include <cv.h>
 #include <highgui.h>
+//#include <opencv2/core/core.hpp>
 
 
 //Ï¸»¯º¯Êý

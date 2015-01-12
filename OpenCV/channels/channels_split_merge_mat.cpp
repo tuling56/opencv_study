@@ -2,7 +2,7 @@
 * Copyright(c) 2014 tuling56
 *
 * File:	channels_split_merge_mat.cpp
-* Brief: 各通道合图显示
+* Brief: 各通道合图显示,在一个窗口显示多个图像
 * Source:http://wenku.baidu.com/link?url=u4sqa8GP8pw9Yj9js7ojH6xgzzAaILf6feE8fy2UuGnMX0rdWP-vL0Gj6ubZuuyji7VqhPCbpLT9-xP--800KNEueU0908ImXgxU0mfmE2O
 * Status: 
 * Date:	[11/30/2014 jmy]
@@ -29,7 +29,7 @@ int channels_split_merge_mat()
 	//读取图像 
 	Mat image;   
 	//char * imageName = argv[1]; 
-	char *imageName="samples/colorreduce.jpg";
+	char *imageName="samples/channel.jpg";
 	image = imread(imageName, CV_LOAD_IMAGE_COLOR);// Read the file  
 	if(! image.data )   
 	{ 
@@ -82,10 +82,17 @@ int channels_split_merge_mat()
 	merge(mbgr,m3);  
 	//复制到显示-原图  
 	image.copyTo (m4); 
+	
 	//显示   
-	namedWindow( imageName,CV_WINDOW_NORMAL);// Create a window for display. 
+	namedWindow( imageName,CV_WINDOW_NORMAL);
 	resizeWindow(imageName,w*2,h*2);  
-	imshow(imageName, display);    // Show our image inside it.  
-	waitKey(0);           // Wait for a keystroke in the window   
+	imshow(imageName, display);      
+	waitKey(0);          
 	return 0; 
 } 
+
+//功能测试区
+//void main()
+//{
+//	channels_split_merge_mat();
+//}

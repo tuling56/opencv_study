@@ -4,23 +4,16 @@
 
 using namespace std;
 
-int main()
+int main_()
 {
 	char*filename="samples/firecorner.jpg";
 	Mat img=imread(filename,CV_LOAD_IMAGE_GRAYSCALE);
+	
 	//garbor(filename);
-	//-----------------------------------°æΩ«µ„ºÏ≤‚∫Õ∆•≈‰°ø-----------------------------
-	//surf_feature();
-	//sift_feature();
-	//surf_feature_opencv();
-	//-----------------------------------°æΩ«µ„ºÏ≤‚°ø-----------------------------
-	//harris_corner_detect(filename);
-	//susan_corner_detect(filename);
-	//fast_corner_detect(filename);
-	threshold(img,img,50,200,THRESH_BINARY);
-	CheckFireAngle(img);
 
+	
 
+	
 	cout<<"====÷˜≥Ã–ÚΩ· ¯========="<<endl;
 	cin.get();
 	return 0;

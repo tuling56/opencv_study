@@ -76,11 +76,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="channels\chanel_split_merge.cpp" />
+    <ClCompile Include="base\readImg.cpp" />
+    <ClCompile Include="base\msubstract.cpp" />
+    <ClCompile Include="base\visit_elem_mat.cpp" />
+    <ClCompile Include="channels\channel_split_merge.cpp" />
     <ClCompile Include="channels\channels_split_merge_mat.cpp" />
+    <ClCompile Include="channels\getRGB.cpp" />
     <ClCompile Include="channels\OpenCVseedfillingcol.cpp" />
+    <ClCompile Include="channels\rgb2hsv.cpp" />
     <ClCompile Include="channels\SobelColor.cpp" />
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="ROI\roi.cpp" />
     <ClCompile Include="ROI\roi_mat.cpp" />
     <ClCompile Include="ROI\roi_merge.cpp" />

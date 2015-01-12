@@ -63,15 +63,27 @@
     <ClCompile Include="histgram\oneDim.cpp">
       <Filter>源文件\histgram</Filter>
     </ClCompile>
-    <ClCompile Include="histgram\histgram_main.cpp">
-      <Filter>源文件\histgram</Filter>
-    </ClCompile>
     <ClCompile Include="corner\firecorner.cpp">
       <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\colorHistgram.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\main_corner.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\main_histgram.cpp">
+      <Filter>源文件\histgram</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Feature.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="corner\corner.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="histgram\histgram.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

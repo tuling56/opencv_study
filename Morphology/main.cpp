@@ -1,13 +1,13 @@
 #include "morphology.h"
 
 
-int main()
+int main_test()
 {
 	char*filename="morphy.jpg";
 	//morphologyShow();
 	//morphy_whole();
 
-	thin(filename);
+	//thin(filename);
 	return 0;
 
 }

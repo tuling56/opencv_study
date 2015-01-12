@@ -6,7 +6,7 @@
 
 using namespace cv;
 
-int histgram()
+int main()
 {
 	char*filename="zimu.jpg";
 
@@ -15,7 +15,8 @@ int histgram()
 	//-------------------------------------------------------------------------
 	//calcDrawHist(filename);
 	//oneDim(filename);
-	mutiDim(filename);
+	//mutiDim(filename);
+	colorHistgram();
 
 	//-----------------------------------【直方图均衡化】------------------------------
 	//	描述:

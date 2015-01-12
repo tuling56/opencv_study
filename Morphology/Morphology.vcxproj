@@ -75,11 +75,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="cvthin.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="morphy1.cpp" />
     <ClCompile Include="morphy2.cpp" />
     <ClCompile Include="morphy_whole.cpp" />
+    <ClCompile Include="watersheds.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="morphology.h" />

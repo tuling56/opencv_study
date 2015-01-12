@@ -37,22 +37,22 @@ static void on_mouse( int event, int x, int y, int flags,void* )
   {
   case CV_EVENT_LBUTTONDOWN:
     {
-        CvPoint seed = cvPoint(x,y);
+        CvPoint seed = cvPoint(x,y);  //获得种子点
         int lo = ffill_case == 0 ? 0 : lo_diff;
         int up = ffill_case == 0 ? 0 : up_diff;
         int flags = connectivity + (new_mask_val << 8) +
-                (ffill_case == 1 ? CV_FLOODFILL_FIXED_RANGE : 0);
-        int b = rand() & 255, g = rand() & 255, r = rand() & 255;
-        CvConnectedComp comp;
-
-        if( is_mask )
+                    (ffill_case == 1 ? CV_FLOODFILL_FIXED_RANGE : 0);
+        int b = rand() & 255, g = rand() & 255, r = rand() & 255; //给种子点随机分配颜色
+		CvConnectedComp comp;
+       
+		if( is_mask )
           cvThreshold( mask, mask, 1, 128, CV_THRESH_BINARY );
-        
-        if( is_color )
-        {
+       
+		if( is_color )
+		{
           CvScalar color = CV_RGB( r, g, b );
           cvFloodFill( color_img, seed, color, CV_RGB( lo, lo, lo ),
-                  CV_RGB( up, up, up ), &comp, flags, is_mask ? mask : NULL );
+                       CV_RGB( up, up, up ), &comp, flags, is_mask ? mask : NULL );
           cvShowImage( "image", color_img );
         }
         else
@@ -75,7 +75,6 @@ static void on_mouse( int event, int x, int y, int flags,void* )
 int OpenCVseedfillingcol_main( int argc, char** argv )
 {
   char* filename = argc >= 2 ? argv[1] : (char*)"samples/fruits.png";
-
   if( (color_img0 = cvLoadImage(filename,1)) == 0 )
     return 0;
 
@@ -105,7 +104,6 @@ int OpenCVseedfillingcol_main( int argc, char** argv )
   for(;;)
   {
     int c;
-    
     if( is_color )
         cvShowImage( "image", color_img );
     else
@@ -175,7 +173,7 @@ int OpenCVseedfillingcol_main( int argc, char** argv )
     }
   }
 
-exit_main:
+exit_main: //竟然用标号
 
   cvDestroyWindow( "test" );
   cvReleaseImage( &gray_img );
@@ -187,6 +185,4 @@ exit_main:
   return 1;
 }
 
-#ifdef _EiC
-main(1,"ffilldemo.c");
-#endif
+

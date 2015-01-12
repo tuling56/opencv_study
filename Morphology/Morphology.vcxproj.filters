@@ -27,7 +27,7 @@
     <ClCompile Include="morphy_whole.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="cvthin.cpp">
+    <ClCompile Include="watersheds.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

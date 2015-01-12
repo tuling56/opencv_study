@@ -28,7 +28,7 @@ using namespace cv;
 //-----------------------------------【全局变量声明部分】--------------------------------------
 //		描述：全局变量声明
 //-----------------------------------------------------------------------------------------------
-Mat g_srcImage, g_dstImage;//原始图和效果图
+Mat srcImage, dstImage;//原始图和效果图
 int g_nElementShape = MORPH_RECT;//元素结构的形状
 
 //变量接收的TrackBar位置参数
@@ -59,12 +59,12 @@ int morphy_whole()
 	ShowHelpText();
 
 	//载入原图
-	g_srcImage = imread("zimu.jpg");
-	if( !g_srcImage.data ) { printf("Oh，no，读取srcImage错误~！ \n"); return false; }
+	srcImage = imread("zimu.jpg");
+	if( !srcImage.data ) { printf("Oh，no，读取srcImage错误~！ \n"); return false; }
 
 	//显示原始图
 	namedWindow("【原始图】");
-	imshow("【原始图】", g_srcImage);
+	imshow("【原始图】", srcImage);
 
 	//创建三个窗口
 	namedWindow("【开运算/闭运算】",1);
@@ -127,11 +127,11 @@ static void on_OpenClose(int, void*)
 	Mat element = getStructuringElement(g_nElementShape, Size(Absolute_offset*2+1, Absolute_offset*2+1), Point(Absolute_offset, Absolute_offset) );
 	//进行操作
 	if( offset < 0 )
-		morphologyEx(g_srcImage, g_dstImage, CV_MOP_OPEN, element);
+		morphologyEx(srcImage, dstImage, CV_MOP_OPEN, element);
 	else
-		morphologyEx(g_srcImage, g_dstImage, CV_MOP_CLOSE, element);
+		morphologyEx(srcImage, dstImage, CV_MOP_CLOSE, element);
 	//显示图像
-	imshow("【开运算/闭运算】",g_dstImage);
+	imshow("【开运算/闭运算】",dstImage);
 }
 
 
@@ -147,11 +147,11 @@ static void on_ErodeDilate(int, void*)
 	Mat element = getStructuringElement(g_nElementShape, Size(Absolute_offset*2+1, Absolute_offset*2+1), Point(Absolute_offset, Absolute_offset) );
 	//进行操作
 	if( offset < 0 )
-		erode(g_srcImage, g_dstImage, element);
+		erode(srcImage, dstImage, element);
 	else
-		dilate(g_srcImage, g_dstImage, element);
+		dilate(srcImage, dstImage, element);
 	//显示图像
-	imshow("【腐蚀/膨胀】",g_dstImage);
+	imshow("【腐蚀/膨胀】",dstImage);
 }
 
 
@@ -167,11 +167,11 @@ static void on_TopBlackHat(int, void*)
 	Mat element = getStructuringElement(g_nElementShape, Size(Absolute_offset*2+1, Absolute_offset*2+1), Point(Absolute_offset, Absolute_offset) );
 	//进行操作
 	if( offset < 0 )
-		morphologyEx(g_srcImage, g_dstImage, MORPH_TOPHAT , element);
+		morphologyEx(srcImage, dstImage, MORPH_TOPHAT , element);
 	else
-		morphologyEx(g_srcImage, g_dstImage, MORPH_BLACKHAT, element);
+		morphologyEx(srcImage, dstImage, MORPH_BLACKHAT, element);
 	//显示图像
-	imshow("【顶帽/黑帽】",g_dstImage);
+	imshow("【顶帽/黑帽】",dstImage);
 }
 
 //-----------------------------------【ShowHelpText( )函数】----------------------------------
