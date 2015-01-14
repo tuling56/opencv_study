@@ -54,9 +54,6 @@
     <ClCompile Include="contour\contour1.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
-    <ClCompile Include="contour\contour2.cpp">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
     <ClCompile Include="linear\line_dete.cpp">
       <Filter>源文件\linear</Filter>
     </ClCompile>

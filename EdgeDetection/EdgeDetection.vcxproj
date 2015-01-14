@@ -80,7 +80,6 @@
     <ClCompile Include="binaryzation\binaryzation.cpp" />
     <ClCompile Include="circle\hough_circle.cpp" />
     <ClCompile Include="contour\contour1.cpp" />
-    <ClCompile Include="contour\contour2.cpp" />
     <ClCompile Include="contour\contour3.cpp" />
     <ClCompile Include="contour\contour4.cpp" />
     <ClCompile Include="contour\contours.c" />

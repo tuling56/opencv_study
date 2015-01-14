@@ -10,4 +10,4 @@ int sift_feature();
 int susan_corner_detect(char*filename);
 int surf_feature();
 int surf_feature_opencv();//¸Ã³ÌĞòÑİÊ¾ÁËÄ£°åÆ¥Åä
-void CheckFireAngle(Mat &img);//»ğÔÖ¼â½Ç¼ì²â
+void CheckFireAngle(cv::Mat &img);//»ğÔÖ¼â½Ç¼ì²â

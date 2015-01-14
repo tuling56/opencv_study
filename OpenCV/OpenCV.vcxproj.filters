@@ -31,6 +31,9 @@
     <Filter Include="源文件\video">
       <UniqueIdentifier>{75efa6cf-f4e3-4933-94a6-334787de04af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\xml">
+      <UniqueIdentifier>{cf731c70-8272-4b38-85ac-96f4184db3e6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ROI\roi.cpp">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="base\visit_elem_mat.cpp">
       <Filter>源文件\base</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xml.cpp">
+      <Filter>源文件\xml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

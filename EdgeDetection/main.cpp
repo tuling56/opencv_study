@@ -6,7 +6,7 @@
 using namespace cv;
 
 
-int main(int argc, char* argv[])
+int main_test(int argc, char* argv[])
 {
 	IplImage *src=cvLoadImage("video_12.JPG");
 	char*filename="samples/test.jpg";
@@ -22,7 +22,7 @@ int main(int argc, char* argv[])
 	//susan(filename);
 	//laplace(filename);
 	//laplace_mat(filename);
-	canny_trackbar(filename);
+	//canny_trackbar(filename);
 	//edge_trackbar(filename);
 
 	//-------------------------------¡¾Ö±Ïß¼ì²â¡¿------------------------------

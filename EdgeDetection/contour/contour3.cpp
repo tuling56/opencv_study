@@ -27,15 +27,15 @@ int contour3( int argc, char** argv )
 	if( argc == 3)
 		if(strcmp(argv[2], "all") == 0)
 			mode = CV_RETR_CCOMP; //内外轮廓都检测 
-	//创建窗口
+
 	cvNamedWindow("src", 1);
 	cvNamedWindow("contour",1);
+	
 	//载入图像，强制转化为Gray
 	if( (pImg = cvLoadImage("samples//square//rect.png", 0)) != 0 )
 	{
 		cvShowImage( "src", pImg );
-		//为轮廓显示图像申请空间
-		//3通道图像，以便用彩色显示
+		//为轮廓显示图像申请空间，3通道图像，以便用彩色显示
 		pContourImg = cvCreateImage(cvGetSize(pImg),IPL_DEPTH_8U,3);
 		//copy source image and convert it to BGR image
 		cvCvtColor(pImg, pContourImg, CV_GRAY2BGR);
@@ -56,19 +56,19 @@ int contour3( int argc, char** argv )
 	}
 	else
 	{
-		//销毁窗口
 		cvDestroyWindow( "src" );
 		cvDestroyWindow( "contour" );
 		cvReleaseMemStorage(&storage);
 		return -1;
 	}
-	//显示图像
+
+
 	cvShowImage( "contour", pContourImg );
 	cvWaitKey(0);
-	//销毁窗口
+
 	cvDestroyWindow( "src" );
 	cvDestroyWindow( "contour" );
-	//释放图像
+
 	cvReleaseImage( &pImg ); 
 	cvReleaseImage( &pContourImg ); 
 	cvReleaseMemStorage(&storage);

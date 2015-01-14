@@ -91,6 +91,7 @@
     <ClCompile Include="ROI\roi_merge.cpp" />
     <ClCompile Include="test\colorReduce.cpp" />
     <ClCompile Include="test\saltImage.cpp" />
+    <ClCompile Include="xml\xml.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opencv.h" />

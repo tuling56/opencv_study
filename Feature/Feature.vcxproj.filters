@@ -22,6 +22,9 @@
     <Filter Include="源文件\garbor">
       <UniqueIdentifier>{9d74e2a6-2cf0-41d4-865b-26a28792fd20}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\connectedomain">
+      <UniqueIdentifier>{4ec360c4-1df5-4a8d-bf5d-004c597193b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="corner\sift_feature.cpp">
@@ -66,14 +69,17 @@
     <ClCompile Include="corner\firecorner.cpp">
       <Filter>源文件\corner</Filter>
     </ClCompile>
-    <ClCompile Include="histgram\colorHistgram.cpp">
-      <Filter>源文件\histgram</Filter>
-    </ClCompile>
     <ClCompile Include="corner\main_corner.cpp">
       <Filter>源文件\corner</Filter>
     </ClCompile>
     <ClCompile Include="histgram\main_histgram.cpp">
       <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="connectedomain\findMaxConnectedDomain.cpp">
+      <Filter>源文件\connectedomain</Filter>
+    </ClCompile>
+    <ClCompile Include="connectedomain\countConnecteDomain.cpp">
+      <Filter>源文件\connectedomain</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
