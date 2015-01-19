@@ -84,6 +84,7 @@
     <ClCompile Include="contour\contour4.cpp" />
     <ClCompile Include="contour\contours.c" />
     <ClCompile Include="contour\cvContours.cpp" />
+    <ClCompile Include="contour\minarea.cpp" />
     <ClCompile Include="edge\canny_trackbar.cpp" />
     <ClCompile Include="edge\edge_trackbar.cpp" />
     <ClCompile Include="edge\edge_whole.cpp" />

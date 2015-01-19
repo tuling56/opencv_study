@@ -49,8 +49,37 @@ int msubstact2()
 	return 0;
 }
 
-//功能测试区
+/*
+ *	功能：视频多帧平均求背景
+ *  输入：
+ *  输出：
+ *  状态：
+ */
 
+int mutiMean(char*videoname)
+{
+	Mat frame;
+	Mat framesum;
+	VideoCapture cap(videoname);
+	if (!cap.isOpened())
+	{
+		cout << "open fail" << endl;
+		return -1;
+	}
+	cap >> frame;
+	int meannum = 3;
+	while (!frame.empty()) //处理多少帧
+	{
+		accumulate(frame, framesum);
+	}
+	return 0;
+}
+
+
+
+
+
+//功能测试区
 //int main()
 //{
 //	msubstact1();

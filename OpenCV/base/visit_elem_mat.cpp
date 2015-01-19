@@ -112,10 +112,10 @@ int wscan(string picname)
 }
 
 //¹¦ÄÜ²âÊÔÇø
-//int main()
-//{
-//	string filename="samples/lena.jpg";
-//	//visit_elem(filename);
-//	wscan(filename);
-//	return 0;
-//}
+int main()
+{
+	string filename="samples/lena.jpg";
+	//visit_elem(filename);
+	wscan(filename);
+	return 0;
+}

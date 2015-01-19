@@ -1,7 +1,7 @@
 //Function：基于opencv的图像边缘检测
-//Detail:包括canny、Log、sobel、susan、prewitt、roberts、laplace、krisch等9中方法。
+//Detail:包括canny、Log、sobel、susan、prewitt、roberts、laplace、krisch等8中方法。
 //Source:
-//Status:
+//Status:修改完善中
 //Improve:
 //Info:[11/18/2014 jmy]
 
@@ -15,61 +15,64 @@ using namespace cv;
 
 void susan(char* path)
 {
-     int height ,width ,step ,channels ;
-     int i,j,k,same ,max,min,thresh,sum;
-     uchar*data0,*data1 ;
-     //char *filename="result.bmp";
-     IplImage* Img,*nimg; //声明IplImage指针
-     Img = cvLoadImage( path,0); //单通道形式加载
-	 if(!Img)
-		return;
-     nimg = cvCreateImage(cvGetSize(Img),8,1);
-	 height = Img->height;
-     width = Img->width;
-     step  = Img->widthStep/sizeof(uchar);
-     channels = Img->nChannels;
-     data0   = (uchar*)Img->imageData;
-     data1 =  (uchar*)nimg->imageData;
+	int height, width, step, channels;
+	int i, j, k, same, max, min, thresh, sum;
+	uchar*data0, *data1;
 
-     printf("Processing a %d X %d image with %d channels\n",width,height,channels);
-     int OffSetX[37] = { -1, 0, 1,
-                         -2,-1, 0, 1, 2,
-                         -3,-2,-1, 0, 1, 2, 3,
-                         -3,-2,-1, 0, 1, 2, 3,
-                         -3,-2,-1, 0, 1, 2, 3,
-                         -2,-1, 0, 1, 2,
-                           -1, 0, 1 };
-     int OffSetY[37] = { -3,-3,-3,
-                        -2,-2,-2,-2,-2,
-                        -1,-1,-1,-1,-1,-1,-1,
-                        0, 0, 0, 0, 0, 0, 0,
-                         1, 1, 1, 1, 1, 1, 1,
-                         2, 2, 2, 2, 2,
-                         3, 3, 3 };
+	IplImage* Img, *nimg; //声明IplImage指针
+	Img = cvLoadImage(path, 0);
+	if (!Img)	return;
+	nimg = cvCreateImage(cvGetSize(Img), 8, 1);
+	height = Img->height;
+	width = Img->width;
+	step = Img->widthStep / sizeof(uchar);
+	channels = Img->nChannels;
+	data0 = (uchar*)Img->imageData;
+	data1 = (uchar*)nimg->imageData;
 
-     max = min = data0[0];
-     //for(i=0;i<height;i++)
-     // for(j=0;j<width;j++)
-      //{
-     // if(data0[i*step+j]>max) max = data0[i*step+j];
-     //if(data0[i*step+j]<min)   min = data0[i*step+j];
-     //   }
-    for(i=3;i<height-3;i++)
-       for(j=3;j<width-3;j++)
-       {
-          same =0;sum = 0;
-          for(k=0;k<37;k++)
-          {
-            sum+=data0[(i+OffSetY[k])*step+(j+OffSetX[k])];
-            thresh = sum/37;
-            if(abs( data0[(i+OffSetY[k])*step+(j+OffSetX[k])]-data0[i*step+j])<=thresh)
-                same++;
-            if(same<18)
-                data1[i*step+j] = 255;
-            else
-                data1[i*step+j] = 0;
+	printf("Processing a %d X %d image with %d channels\n", width, height, channels);
+	int OffSetX[37] = { -1, 0, 1,
+		-2, -1, 0, 1, 2,
+		-3, -2, -1, 0, 1, 2, 3,
+		-3, -2, -1, 0, 1, 2, 3,
+		-3, -2, -1, 0, 1, 2, 3,
+		-2, -1, 0, 1, 2,
+		-1, 0, 1 };
+	int OffSetY[37] = { -3, -3, -3,
+		-2, -2, -2, -2, -2,
+		-1, -1, -1, -1, -1, -1, -1,
+		0, 0, 0, 0, 0, 0, 0,
+		1, 1, 1, 1, 1, 1, 1,
+		2, 2, 2, 2, 2,
+		3, 3, 3 };
+
+	max = min = data0[0];
+	//for(i=0;i<height;i++)
+	//for(j=0;j<width;j++)
+	//{
+	//		if(data0[i*step+j]>max)
+	//          max = data0[i*step+j];
+	//		if(data0[i*step+j]<min)   
+	//          min = data0[i*step+j];
+	// }
+	for (i = 3; i < height - 3; i++)
+	{
+		for (j = 3; j < width - 3; j++)
+		{
+			same = 0; sum = 0;
+			for (k = 0; k < 37; k++)
+			{
+				sum += data0[(i + OffSetY[k])*step + (j + OffSetX[k])];
+				thresh = sum / 37;
+				if (abs(data0[(i + OffSetY[k])*step + (j + OffSetX[k])] - data0[i*step + j]) <= thresh)
+					same++;
+				if (same < 18)
+					data1[i*step + j] = 255;
+				else
+					data1[i*step + j] = 0;
+			}
+		}
      }
-   }
 
 	cvNamedWindow("SUSAN",1);  
 	cvShowImage("SUSAN",nimg);    
@@ -83,8 +86,7 @@ void krisch(char* path)
 {
 	IplImage *src;
 	src=cvLoadImage(path,0); //0 单通道加载
-	if(!src)
-		return;
+	if(!src)	return;
     IplImage *dst = cvCloneImage(src);
 	int x,y;
 	float a,b,c,d;
@@ -123,18 +125,15 @@ void krisch(char* path)
 	cvNamedWindow("krisch",1);      
 	cvShowImage("krisch",dst); 
 	cvWaitKey(0);                  
-	cvDestroyAllWindows();  
+	cvDestroyWindow("krisch");  
     cvReleaseImage(&dst);
     cvReleaseImage(&src);
 }
 
-
-
 void roberts(char *path)
 {
     IplImage *src=cvLoadImage(path,0);//自己修改了，原来的加载参数是-1，即加载原始通道数，但显示图像的时候出现异常
-	if(!src)
-		return;
+	if(!src)	return;
 	IplImage *robert=cvCloneImage(src);
 	int x,y,i,w,h;
 	int gx,gy;
@@ -165,33 +164,26 @@ void roberts(char *path)
 			*(ptr+y*robert->widthStep+x)=gx; 
 
 		}
-	cvNamedWindow("Original Image",1);
-	cvShowImage("Original Image",src);	
+
 	cvNamedWindow("robert",0);
 	cvShowImage("robert",robert);
 	cvWaitKey(0);
 	cvReleaseImage ( &src );
 	cvReleaseImage ( &robert );
-	cvDestroyAllWindows();
+	cvDestroyWindow("robert");
 }
-
 
 void laplace(char *path)
 {
     IplImage *src = cvLoadImage(path,-1);
-	if(!src)
-		return;
+	if(!src)	return;
     IplImage *d_Image = NULL; 
     d_Image = cvCloneImage(src); 
     cvLaplace(src,d_Image,3); //拉普拉斯变换
 	
-	cvNamedWindow("Original Image",1);
-	cvShowImage("Original Image",src);
 	cvNamedWindow("Laplace",1);     
 	cvShowImage("Laplace",d_Image);   
-	
 	cvWaitKey(0);                      
-	
 	cvDestroyWindow("Laplace");   
     cvReleaseImage(&src);
 	cvReleaseImage(&d_Image);
@@ -205,9 +197,6 @@ void laplace_mat(char*path)
 
 	//【1】载入原始图  
 	src = imread(path);  //工程目录下应该有一张名为1.jpg的素材图
-
-	//【2】显示原始图 
-	imshow("【原始图】图像Laplace变换(2.0)", src); 
 
 	//【3】使用高斯滤波消除噪声
 	GaussianBlur( src, src, Size(3,3), 0, 0, BORDER_DEFAULT );
@@ -225,10 +214,9 @@ void laplace_mat(char*path)
 	imshow( "【效果图】图像Laplace变换(2.0)", abs_dst );
 
 	waitKey(0); 
+	cv::destroyWindow("【效果图】图像Laplace变换(2.0)");
 
 }
-
-
 
 void prewitt(char *path)
 {
@@ -237,12 +225,10 @@ void prewitt(char *path)
 	if(!src)
 		return;
     IplImage *gray = cvCreateImage(cvGetSize(src),8,1) ;
-    if (src->nChannels == 1) 
-    {
+    if (src->nChannels == 1)   {
 	   cvCopy( src, gray);
 	}
-	else
-    {
+	else{
 		cvCvtColor(src,gray,CV_BGR2GRAY);//色彩空间转换，转换类型为CV_BGR2GRAY
     }
 	IplImage *dst=NULL;
@@ -290,40 +276,34 @@ void prewitt(char *path)
 	}	 
 	cvReleaseImage(&dstx);
 	cvReleaseImage(&dsty);
-	cvNamedWindow("Original Image",1);
-	cvShowImage("Original Image",src);
+
 	cvNamedWindow("Prewitt",1);    
 	cvShowImage("Prewitt",dst);    
 	cvWaitKey(0);                     
-	cvDestroyAllWindows();  
+	cvDestroyWindow("Prewitt");  
     cvReleaseImage(&dst);
 	cvReleaseImage(&src);
 	cvReleaseImage(&gray);
 }
 
-
 void canny(char *path)
 {
     IplImage *img;
 	img=cvLoadImage(path,0); //0 单通道加载
-	if(!img)
-		return;
+	if(!img)  return;
 	IplImage *imgCanny;
 	imgCanny=cvCreateImage(cvSize(img->width,img->height),img->depth,img->nChannels);
 	cvCanny(img,imgCanny,100,60);
 	
-	cvNamedWindow("Original Image",1);
-	cvShowImage("Original Image",img);
 	
 	cvNamedWindow("Canny Image",1);
 	cvShowImage("Canny Image",imgCanny);
 	cvWaitKey(0);
 	cvReleaseImage(&img);
 	cvReleaseImage(&imgCanny);
-	cvDestroyAllWindows();   
+	cvDestroyWindow("Canny Image");   
 
 }
-
 
 void sobel(char *path)  
 {
@@ -344,8 +324,7 @@ void sobel(char *path)
 	cvConvertScaleAbs(img16S,imgSobely,1);
 	cvAdd(imgSobelx,imgSobely,imgSobel);	//使用两个方向的梯度绝对值和近似梯度模
 
-	cvNamedWindow("Original Image",1);
-	cvShowImage("Original Image",img);
+
 	cvNamedWindow("Sobel Image",1);
 	cvShowImage("Sobel Image",imgSobel);
 	cvWaitKey(0);
@@ -355,7 +334,7 @@ void sobel(char *path)
 	cvReleaseImage(&imgSobelx);
 	cvReleaseImage(&imgSobely);
 	cvReleaseImage(&img16S);
-	cvDestroyAllWindows();   
+	cvDestroyWindow("Sobel Image");   
 }
 
 void log(char *path)  
@@ -363,8 +342,7 @@ void log(char *path)
      
 	IplImage *img;
 	img=cvLoadImage(path,-1); //-1保持原来的颜色通道
-	if(!img)
-		return;
+	if(!img)	return;
 	IplImage *imgLoG,*img16S;
 	CvScalar mean;
 	img16S=cvCreateImage(cvSize(img->width,img->height),IPL_DEPTH_16S,img->nChannels);
@@ -377,15 +355,33 @@ void log(char *path)
 	//cvMinMaxLoc(imgLoG,&min_val,&max_val);   //取图像中的最大最小像素值
 	//cvNormalize(imgLoG,imgLoG,0,255,CV_MINMAX); //归一化处理
 
-	cvNamedWindow("Original Image",1);
-	cvShowImage("Original Image",img);
+
 	cvNamedWindow("LoG Image",1);
 	cvShowImage("LoG Image",imgLoG);
 	cvWaitKey(0);
 	cvReleaseImage(&img);
 	cvReleaseImage(&imgLoG);
 	cvReleaseImage(&img16S);
-	cvDestroyAllWindows();   
+	cvDestroyWindow("LoG Image");   
 }  
 
 
+//功能测试区
+int main()
+{
+	 char*path = "samples\\200.png";
+	 Mat img = imread(path);
+	 imshow("Origin", img);
+	 waitKey(10);
+
+	 susan( path);
+	 krisch( path);
+	 roberts(path);
+ 	 laplace(path);
+	 laplace_mat(path);
+	 prewitt(path);
+	 canny(path);
+	 sobel(path);
+	 log(path);
+	 waitKey();
+}

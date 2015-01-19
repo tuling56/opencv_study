@@ -84,6 +84,9 @@
     <ClCompile Include="xml\xml.cpp">
       <Filter>源文件\xml</Filter>
     </ClCompile>
+    <ClCompile Include="video\frameMean.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opencv.h">

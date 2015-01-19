@@ -68,7 +68,7 @@ ostream& operator<<(ostream& out, const MyData& m)
 	return out;
 }
 
-int main(int ac, char** av)
+int main_xml(int ac, char** av)
 {
 // 	if (ac != 2)
 // 	{

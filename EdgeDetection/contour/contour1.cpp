@@ -166,9 +166,9 @@ int contour2(char*path)
 }
 
 //¹¦ÄÜ²âÊÔÇø
-int main()
-{
-	//contour1();
-	contour2("samples/contour/contour.jpg");
-	return 0;
-}
+//int main()
+//{
+//	//contour1();
+//	contour2("samples/contour/contour.jpg");
+//	return 0;
+//}
