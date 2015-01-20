@@ -54,16 +54,19 @@ int sortm(const int &v1, const int &v2)
  *  状态：
  */
 
-int wscan(string picname)
+int wscan(char* wnum,char*nnum,string picname)
 {
-	int w = 9;
+	//int w = 9;
+	int w = atoi(wnum);
+	int nmean = atoi(nnum);
+	cout << "win size=" << w <<"nmean= "<<nmean<<endl;
 	int num = 0;
 	int mean = 0;
 	vector<int> v1;
 	Mat img = imread(picname,0);
 	Mat result;
 	img.copyTo(result);
-	imshow("o", img);
+	//imshow("OriginImg", img);
 
 	int myu,myd,nxl,nxr;//定义搜索界限
 	double duration=static_cast<double>(getTickCount());
@@ -74,7 +77,7 @@ int wscan(string picname)
 		for (int j = 0; j < img.cols; j++)
 		{
 			num++;
-			cout << num << endl;
+			cout << "row: "<<i<<" col: " <<j<< endl;
 			//cout << "row " << i << " col: " << j << ": " << int(img.at<uchar>(i, j)) << endl;
 			nxl=(j - w / 2) > 0 ? (j - w / 2) : 0;
 			nxr=(j + w / 2)>img.cols ? img.cols : (j + w / 2);
@@ -89,10 +92,10 @@ int wscan(string picname)
 			}
 			//对vector中的元素进行排序，去除最大值，然后取前5个值的平均值
 			std::sort(v1.begin(), v1.end(), sortm);
-			for (int i = 1; i < 6;i++)	{
+			for (int i = 1; i <= nmean;i++)	{
 				mean = mean + v1[i];
 			}
-			mean = mean / 5;
+			mean = mean / nmean;
 			
 			//对该点灰度进行重新赋值
 			result.at<uchar>(i, j) = mean;
@@ -105,17 +108,23 @@ int wscan(string picname)
 	duration/=getTickFrequency();
 	duration=duration/1000;
 	cout<<"耗时(秒)："<<duration<<endl;
-	imwrite("wbg.png",result);
-	imshow("c", result);
+	imwrite("background.png",result);
+	imshow("Background", result);
 	waitKey(0);
 	return 0;
 }
 
 //功能测试区
-int main()
-{
-	string filename="samples/lena.jpg";
-	//visit_elem(filename);
-	wscan(filename);
-	return 0;
-}
+//int main(int argc,char*argv[])
+//{
+//	//string filename="samples/lena.jpg";
+//	//visit_elem(filename);
+//	if (argc != 4){
+//		cout << "please input the win size and pic" << endl;
+//		cout << "usage" << argv[0] << "[win size] [nmeans] [picnanme]" << endl;
+//		return -1;
+//	}
+//	
+//	wscan(argv[1],argv[2],argv[3]);
+//	return 0;
+//}

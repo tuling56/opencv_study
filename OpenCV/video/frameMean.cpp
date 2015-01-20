@@ -10,6 +10,10 @@
 
 #include <cv.h>
 #include <highgui.h>
+#include <iostream>
+
+using std::cout;
+using std::endl;
 
 
 
@@ -19,40 +23,72 @@
  *  状态:
  */
 
-int framesmeans_main()
+int main_()
 {
-	CvCapture* capture = cvCaptureFromFile("samples/video/test_o2.mp4");
+	CvCapture* capture = cvCaptureFromFile( "samples/video/test_o2.mp4");//"test.avi");//
 	IplImage* frame = NULL;
-	IplImage * imgsum = NULL;
+	IplImage* framegray = NULL;
+	IplImage * framesum = NULL;
+	cvNamedWindow("diff", 1);
 
-	int start = 301;
-	int end = 304;
-	cvSetCaptureProperty(capture, CV_CAP_PROP_POS_FRAMES, start);
-
-	int count = start;
-	while (cvGrabFrame(capture) && count <= end)
+	int start = 0, curframe = 0, meannum = 6;
+	while (cvGrabFrame(capture)) 
 	{
+		curframe = cvGetCaptureProperty(capture, CV_CAP_PROP_POS_FRAMES);
+		start = (curframe - meannum > 0) ? (curframe - meannum) : 0;
+		cvSetCaptureProperty(capture, CV_CAP_PROP_POS_FRAMES, start);
 		frame = cvRetrieveFrame(capture);// 获取当前帧
-		if (imgsum == NULL){
-			imgsum = cvCreateImage(cvGetSize(frame), IPL_DEPTH_32F, 3);
-			cvZero(imgsum);
+		framegray= cvCreateImage(cvGetSize(frame), IPL_DEPTH_8U, 1);
+		cvCvtColor(frame, framegray, CV_BGR2GRAY);
+		cout << "==================================" << endl;
+		cout << "当前帧：" << curframe << endl
+			 << "取平均的帧开始号: " << start << endl;
+		int countstart = start;
+		while (start<curframe)
+		{
+			cout << "开始累积" << start << endl;
+			frame = cvRetrieveFrame(capture);// 获取当前帧
+			cvCvtColor(frame, framegray, CV_BGR2GRAY);
+			if (framesum == NULL){
+				framesum = cvCreateImage(cvGetSize(frame), IPL_DEPTH_32F, 1);
+				cvZero(framesum);
+			}
+			cvAcc(framegray, framesum);
+
+			//char testname[100];
+			//sprintf(testname, "%s%d%s", "image", start, ".jpg");
+			//cvShowImage(testname, frame);
+			//cvSaveImage(testname, frame);
+
+			cvGrabFrame(capture);
+			start++;
 		}
-		cvAcc(frame, imgsum);
+		cout << "累积完毕，开始计算平均" << curframe << "-[" << countstart << "---" << curframe - 1 <<"]"<< endl;
+		IplImage * frameavg = cvCreateImage(cvGetSize(frame), IPL_DEPTH_8U, 1);
+		if (curframe>meannum){
+			cvConvertScale(framesum, frameavg, 1.0 / meannum);
+		}
+		else{
+			cvConvertScale(framesum, frameavg, 1.0 / curframe);
+		}
 
-		char testname[100];
-		sprintf(testname, "%s%d%s", "image", count, ".jpg");
-		cvShowImage(testname, frame);
-		cvSaveImage(testname, frame);
-
-		count++;
+		cvAbsDiff(framegray,frameavg,framegray);
+		//cvThreshold(framegray,framegray,155,255,CV_THRESH_BINARY);
+		cvShowImage("diff", framegray);
+		//cvSaveImage("diff_4.jpg", frame);
+		cvReleaseImage(&frameavg);
+		cvReleaseImage(&framegray);
+		
+		char c = cvWaitKey(10);
+		if (c==27)	{
+			break;
+		}
+		
 	}
-	IplImage * imgavg = cvCreateImage(cvGetSize(frame), IPL_DEPTH_8U, 3);
-	cvConvertScale(imgsum, imgavg, 1.0 / 4.0);
-
-	cvShowImage("imageavg", imgavg);
-	cvSaveImage("imageavg_4.jpg", imgavg);
-
-	cvWaitKey(0);
+	
 	cvReleaseCapture(&capture);
+	cvDestroyWindow("diff");
 	return 0;
 }
+
+//功能测试区

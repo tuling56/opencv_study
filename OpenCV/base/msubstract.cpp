@@ -18,33 +18,34 @@ using namespace std;
 string filename1 = "samples/(6)SWT_Transform.png";
 string filename2 = "samples/(7)Connected Components.png";
 
-int msubstact1()
+int msubstact1(string s1,string s2)
 {
-	Mat img1 = imread(filename1);
-	Mat img2 = imread(filename2);//两幅图像的大小需要一致 
+	Mat img1 = imread(s1);
+	Mat img2 = imread(s2);//两幅图像的大小需要一致 
 	Mat img_result1, img_result2, img_result;
 	subtract(img1, img2, img_result1);
-	subtract(img2, img1, img_result2);
-	add(img_result1, img_result2, img_result1);
-	imwrite("result.jpg", img_result1);
-	imshow("result", img_result1);
+	//subtract(img2, img1, img_result2);
+	//add(img_result1, img_result2, img_result);
+	imwrite("s1-s2.jpg", img_result1);
+	imshow("s1-s2", img_result1);
 	waitKey(0);
 	return 0;
 }
 
 
-int msubstact2()
+int msubstact2(string s1,string s2)
 {
-	Mat img1 = imread(filename1);
+	Mat img1 = imread(s1);
 	if (!img1.data){
 		printf("fail to load\n");
 	}
-	Mat img2 = imread(filename2);
+	Mat img2 = imread(s2);
 	Mat diff(img1.size(),CV_8UC1,0);
 	Mat rev_img1;
 	img1.convertTo(rev_img1,-1,-1,255);
 	absdiff(rev_img1, img2, diff);
-	imshow("diff", diff);
+	imshow("-s1-s2", diff);
+	imwrite("-s1-s2.png", diff);
 	waitKey();
 	return 0;
 }
@@ -56,21 +57,44 @@ int msubstact2()
  *  状态：
  */
 
-int mutiMean(char*videoname)
+int mutiframeMean(char*videoname)
 {
-	Mat frame;
-	Mat framesum;
+	Mat frame,tempframe;
 	VideoCapture cap(videoname);
-	if (!cap.isOpened())
-	{
+	if (!cap.isOpened()){
 		cout << "open fail" << endl;
 		return -1;
 	}
 	cap >> frame;
-	int meannum = 3;
+	Mat framesum;
+	framesum.create(frame.rows, frame.cols,CV_32FC3);
+	framesum.setTo(0);
+	framesum.copyTo(tempframe);
+
+	int curframe=0,start=0, meannum = 3;
 	while (!frame.empty()) //处理多少帧
 	{
-		accumulate(frame, framesum);
+		curframe=cap.get(CV_CAP_PROP_POS_FRAMES);
+		start = (curframe - meannum > 1) ? (curframe - meannum) : 1;
+		cap.set(CV_CAP_PROP_POS_FRAMES, start);
+
+		while (cap.grab() && start <curframe)
+		{
+			cap.read(frame);// 获取当前帧
+			convertScaleAbs(frame, tempframe, 1);
+			accumulateWeighted(frame, framesum,0.02);
+
+			//char testname[100];
+			//sprintf(testname, "%s%d%s", "image", start, ".jpg");
+			//imwrite(testname, frame);
+			start++;
+		}
+		framesum.convertTo(framesum, -1, 1 / meannum);
+		frame.convertTo(tempframe, 1, 1);
+		absdiff(tempframe, framesum, tempframe);
+		imshow("diff", tempframe);
+		waitKey(10);
+		cap >> frame;
 	}
 	return 0;
 }
@@ -80,10 +104,19 @@ int mutiMean(char*videoname)
 
 
 //功能测试区
-//int main()
+//int main(int argc,char*argv[])
 //{
-//	msubstact1();
-//	msubstact2();
+//	//if (argc != 3){
+//	//	printf("Please select the two pics\n");
+//	//	waitKey(0);
+//	//	return -1;
+//	//}
+//	//cout << "[method1]:s1-s2" << endl;
+//	//msubstact1(argv[1], argv[2]);
+//	//cout << "[method1]:-s1-s2" << endl;
+//	//msubstact2(argv[1], argv[2]);
+//	mutiframeMean("samples\\video\\test_o2.mp4");
+//
 //	waitKey(0);
 //	return 0;
 //}
