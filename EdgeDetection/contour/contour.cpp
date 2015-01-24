@@ -1,8 +1,8 @@
 /************************************************************************
 * Copyright(c) 2015 tuling56
 *
-* File:	contour1.cpp
-* Brief: 图像的轮廓检测上
+* File:	contour.cpp
+* Brief: 该文件包含两个函数，都是自己绘图，然后检测轮廓
 * Source:http://blog.csdn.net/MoreWindows
 * Status: 
 * Date:	[1/14/2015 jmy]

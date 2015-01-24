@@ -54,8 +54,7 @@ static void findCComp( IplImage* img )
         {
             if( CV_IMAGE_ELEM(mask, uchar, y+1, x+1) != 0 )
                 continue;
-            cvFloodFill(img, cvPoint(x,y), cvScalarAll(cidx),
-                        cvScalarAll(0), cvScalarAll(0), 0, 4, mask);
+            cvFloodFill(img, cvPoint(x,y), cvScalarAll(cidx),cvScalarAll(0), cvScalarAll(0), 0, 4, mask);
             cidx++;
         }
 }

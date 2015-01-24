@@ -1,6 +1,6 @@
 //Function：寻找轮廓并讲解CvSeq的用法
 //Source: http://blog.csdn.net/augusdi/article/details/9000276
-//Status:
+//Status:基于OpenCV1
 //Improve:
 //Info:[11/15/2014 jmy]
 
@@ -31,15 +31,15 @@ int contour3( int argc, char** argv )
 	cvNamedWindow("src", 1);
 	cvNamedWindow("contour",1);
 	
-	//载入图像，强制转化为Gray
-	if( (pImg = cvLoadImage("samples//square//rect.png", 0)) != 0 )
+	//以灰度图像载入，然后强制将灰度图转化为彩色图
+	if( (pImg = cvLoadImage("samples//200.png", 0)) != 0 )
 	{
 		cvShowImage( "src", pImg );
 		//为轮廓显示图像申请空间，3通道图像，以便用彩色显示
 		pContourImg = cvCreateImage(cvGetSize(pImg),IPL_DEPTH_8U,3);
 		//copy source image and convert it to BGR image
-		cvCvtColor(pImg, pContourImg, CV_GRAY2BGR);
-		cvCanny(pImg, pImg, 50, 150, 5); 
+		cvCvtColor(pImg, pContourImg, CV_GRAY2BGR);//只不过是将每个通道都赋成相同的灰度值
+		cvCanny(pImg, pImg, 50, 150, 5); //在边缘检测图像的基础上再寻找轮廓
 		int Num=cvFindContours( pImg, storage, &contour, sizeof(CvContour), mode, CV_CHAIN_APPROX_SIMPLE);
 		std::cout<<"The number of Contours is:"<<Num<<std::endl;
 		for(;contour!=0;contour=contour->h_next)
@@ -47,7 +47,7 @@ int contour3( int argc, char** argv )
 			printf("***************************************************\n");
 			for(int i=0;i<contour->total;i++)
 			{
-				CvPoint* p=(CvPoint*)cvGetSeqElem(contour,i);
+				CvPoint* p=(CvPoint*)cvGetSeqElem(contour,i);//依次取得轮廓中的每个点
 				printf("p->x=%d,p->y=%d\n",p->x,p->y); 
 			}
 			//将轮廓画出 
@@ -74,3 +74,30 @@ int contour3( int argc, char** argv )
 	cvReleaseMemStorage(&storage);
 	return 0;
 }
+
+//功能测试区
+//int main()
+//{
+//	IplImage *src = cvLoadImage("samples\\200.png");
+//	IplImage *gray = cvCreateImage(cvGetSize(src), IPL_DEPTH_8U, 1);
+//	cvCvtColor(src,gray,CV_BGR2GRAY);
+//	//cvCanny(gray, gray, 100, 255);
+//	cvThreshold(gray, gray, 100, 255, CV_THRESH_BINARY_INV);
+//	cvSmooth(gray,gray,2);
+//	IplImage*bin = cvCloneImage(gray);
+//	
+//	CvMemStorage * storage = cvCreateMemStorage(0);
+//	CvSeq * contour = 0;
+//	//cvFindeContours（）会修改gray图像
+//	int Num = cvFindContours(bin, storage, &contour, sizeof(CvContour), CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE);
+//
+//	for (; contour != 0; contour = contour->h_next){
+//		cvDrawContours(src, contour, CV_RGB(0, 255, 0), CV_RGB(0, 255, 0), 0, 1, 0);
+//	}
+//	cvNamedWindow("Result", 1);
+//	cvShowImage("Result", src);
+//	//contour3(0, NULL);
+//	cvWaitKey();
+//
+//	return 0;
+//}

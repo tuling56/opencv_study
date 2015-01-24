@@ -34,6 +34,9 @@
     <Filter Include="源文件\xml">
       <UniqueIdentifier>{cf731c70-8272-4b38-85ac-96f4184db3e6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\regiongrow">
+      <UniqueIdentifier>{19ccb551-0376-4c9c-98f7-6f6f047b35af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ROI\roi.cpp">
@@ -86,6 +89,18 @@
     </ClCompile>
     <ClCompile Include="video\frameMean.cpp">
       <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="region\regionGrow.cpp">
+      <Filter>源文件\regiongrow</Filter>
+    </ClCompile>
+    <ClCompile Include="region\regionGrow1.cpp">
+      <Filter>源文件\regiongrow</Filter>
+    </ClCompile>
+    <ClCompile Include="region\regionGrow2.cpp">
+      <Filter>源文件\regiongrow</Filter>
+    </ClCompile>
+    <ClCompile Include="base\matrixCalculate.cpp">
+      <Filter>源文件\base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -79,12 +79,13 @@
     <ClCompile Include="binaryzation\adaptiveThreshold.cpp" />
     <ClCompile Include="binaryzation\binaryzation.cpp" />
     <ClCompile Include="circle\hough_circle.cpp" />
-    <ClCompile Include="contour\contour1.cpp" />
+    <ClCompile Include="contour\contour.cpp" />
     <ClCompile Include="contour\contour3.cpp" />
     <ClCompile Include="contour\contour4.cpp" />
     <ClCompile Include="contour\contours.c" />
     <ClCompile Include="contour\cvContours.cpp" />
     <ClCompile Include="contour\minarea.cpp" />
+    <ClCompile Include="contour\moments_demo.cpp" />
     <ClCompile Include="edge\canny_trackbar.cpp" />
     <ClCompile Include="edge\edge_trackbar.cpp" />
     <ClCompile Include="edge\edge_whole.cpp" />

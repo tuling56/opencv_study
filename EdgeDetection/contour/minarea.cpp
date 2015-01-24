@@ -1,3 +1,14 @@
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	minarea.cpp
+* Brief: 最小外接矩形和最小外接圆等形状描述子
+* Source:
+* Status: 
+* Date:	[1/22/2015 jmy]
+************************************************************************/
+
+
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 

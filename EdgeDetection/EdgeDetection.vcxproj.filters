@@ -51,9 +51,6 @@
     <ClCompile Include="binaryzation\adaptiveThreshold.cpp">
       <Filter>源文件\binaryzation</Filter>
     </ClCompile>
-    <ClCompile Include="contour\contour1.cpp">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
     <ClCompile Include="linear\line_dete.cpp">
       <Filter>源文件\linear</Filter>
     </ClCompile>
@@ -94,6 +91,12 @@
       <Filter>源文件\filtersmooth</Filter>
     </ClCompile>
     <ClCompile Include="contour\minarea.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contour.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\moments_demo.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
   </ItemGroup>

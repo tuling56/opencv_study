@@ -76,6 +76,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="base\matrixCalculate.cpp" />
     <ClCompile Include="base\readImg.cpp" />
     <ClCompile Include="base\msubstract.cpp" />
     <ClCompile Include="base\visit_elem_mat.cpp" />
@@ -86,6 +87,9 @@
     <ClCompile Include="channels\rgb2hsv.cpp" />
     <ClCompile Include="channels\SobelColor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="region\regionGrow.cpp" />
+    <ClCompile Include="region\regionGrow1.cpp" />
+    <ClCompile Include="region\regionGrow2.cpp" />
     <ClCompile Include="ROI\roi.cpp" />
     <ClCompile Include="ROI\roi_mat.cpp" />
     <ClCompile Include="ROI\roi_merge.cpp" />

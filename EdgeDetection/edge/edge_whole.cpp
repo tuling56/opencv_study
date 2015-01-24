@@ -367,21 +367,21 @@ void log(char *path)
 
 
 //¹¦ÄÜ²âÊÔÇø
-int main()
-{
-	 char*path = "samples\\200.png";
-	 Mat img = imread(path);
-	 imshow("Origin", img);
-	 waitKey(10);
-
-	 susan( path);
-	 krisch( path);
-	 roberts(path);
- 	 laplace(path);
-	 laplace_mat(path);
-	 prewitt(path);
-	 canny(path);
-	 sobel(path);
-	 log(path);
-	 waitKey();
-}
+//int main()
+//{
+//	 char*path = "samples\\200.png";
+//	 Mat img = imread(path);
+//	 imshow("Origin", img);
+//	 waitKey(10);
+//
+//	 susan( path);
+//	 krisch( path);
+//	 roberts(path);
+// 	 laplace(path);
+//	 laplace_mat(path);
+//	 prewitt(path);
+//	 canny(path);
+//	 sobel(path);
+//	 log(path);
+//	 waitKey();
+//}
