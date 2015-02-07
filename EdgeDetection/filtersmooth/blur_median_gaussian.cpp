@@ -17,7 +17,7 @@ int opencv2_filter(char*path)
     using namespace cv;
 
     Mat image=imread(path);
-    cvtColor(image,image,CV_BGR2GRAY);//opencv2.0中通道转换函数
+    //cvtColor(image,image,CV_BGR2GRAY);//opencv2.0中通道转换函数
 
     Mat blurResult;
     Mat gaussianResult;
@@ -37,3 +37,12 @@ int opencv2_filter(char*path)
     waitKey();
     return 0;
 }
+
+//功能测试区
+//int main(int argc,char**argv)
+//{
+// 
+//	opencv2_filter("samples\\img_208.jpg");
+//    getchar();
+//	return 0;
+//}

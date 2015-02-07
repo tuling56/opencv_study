@@ -19,7 +19,7 @@ void sobel(char *path);
 void log(char *path);
 
 int canny_trackbar(char*filename);//更详细地讲canny的用法,滑动条调节参数
-int edge_trackbar( char*path);//来自毛星云
+int edge_trackbar( char*path);    //来自毛星云
 
 //-----------------------------------【轮廓检测】-----------------------------
 //描述：
@@ -56,6 +56,7 @@ int adaptiveThreshold(char*path);
 //描述：
 //-------------------------------------------------------------------------
 int meanshift_smooth_segmentation();
+
 
 
 

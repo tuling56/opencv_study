@@ -9,6 +9,7 @@
 ************************************************************************/
 
 #include <stdio.h>
+#include <windows.h>
 #include <cv.h>
 #include <cxcore.h>
 #include <highgui.h>
@@ -256,9 +257,9 @@ float bbOverlap(Rect& box1,Rect& box2)
 
 
 
-//功能测试区
+//功能测试区1
 vector<Rect> rectlist;
-int main()
+int mainf1()
 {
 	IplImage* srccolor = cvLoadImage("samples/box.png", CV_LOAD_IMAGE_COLOR);
 	IplImage* src = cvLoadImage("samples/box.png", CV_LOAD_IMAGE_GRAYSCALE);
@@ -284,7 +285,7 @@ int main()
 	//-----------------------------------【轮廓分析】-----------------------------
 	//描述：分析和提取轮廓的形状，面积，宽高比等特征，连通域分析
 	//-----------------------------------------------------------------------
-	double maxarea = 0,double minarea = 100;
+	double maxarea = 0, minarea = 100;
 	for( ; contour != 0; contour = contour->h_next )  //同级别的下一个轮廓
 	{
 		cvDrawContours(dst, contour, CV_RGB(0, 255, 0), CV_RGB(0, 255, 0), -1, 1);//绘制轮廓
@@ -366,12 +367,6 @@ int main()
 		}
 	}
 
-
-
-
-
-
-	
 	cvShowImage("src",srccolor);
 	cvShowImage("Result",dst);
 	cvWaitKey(0);

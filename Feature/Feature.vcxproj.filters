@@ -45,9 +45,6 @@
     <ClCompile Include="corner\fast_corner_detect.cpp">
       <Filter>源文件\corner</Filter>
     </ClCompile>
-    <ClCompile Include="corner\fast_feature_opencv.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -80,6 +77,12 @@
     </ClCompile>
     <ClCompile Include="connectedomain\countConnecteDomain.cpp">
       <Filter>源文件\connectedomain</Filter>
+    </ClCompile>
+    <ClCompile Include="connectedomain\mserArea.cpp">
+      <Filter>源文件\connectedomain</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\freak_demo.cpp">
+      <Filter>源文件\corner</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

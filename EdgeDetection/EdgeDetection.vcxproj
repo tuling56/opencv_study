@@ -90,12 +90,14 @@
     <ClCompile Include="edge\edge_trackbar.cpp" />
     <ClCompile Include="edge\edge_whole.cpp" />
     <ClCompile Include="filtersmooth\blur_median_gaussian.cpp" />
-    <ClCompile Include="filtersmooth\filter.cpp" />
-    <ClCompile Include="filtersmooth\meanshift_smooth_segmentation.cpp" />
+    <ClCompile Include="filtersmooth\filter_main.cpp" />
+    <ClCompile Include="filtersmooth\maxMinFilter.cpp" />
     <ClCompile Include="filtersmooth\whole.cpp" />
     <ClCompile Include="linear\hough_line.cpp" />
     <ClCompile Include="linear\line_dete.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="segment\meanshift_smooth_segmentation.cpp" />
+    <ClCompile Include="segment\watershed.cpp" />
     <ClCompile Include="square\sqaure_detection.cpp" />
   </ItemGroup>
   <ItemGroup>

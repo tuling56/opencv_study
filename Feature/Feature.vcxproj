@@ -78,9 +78,10 @@
   <ItemGroup>
     <ClCompile Include="connectedomain\countConnecteDomain.cpp" />
     <ClCompile Include="connectedomain\findMaxConnectedDomain.cpp" />
+    <ClCompile Include="connectedomain\mserArea.cpp" />
     <ClCompile Include="corner\fast_corner_detect.cpp" />
-    <ClCompile Include="corner\fast_feature_opencv.cpp" />
     <ClCompile Include="corner\firecorner.cpp" />
+    <ClCompile Include="corner\freak_demo.cpp" />
     <ClCompile Include="corner\harris_corner_detect.cpp" />
     <ClCompile Include="corner\main_corner.cpp" />
     <ClCompile Include="corner\sift_feature.cpp" />

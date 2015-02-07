@@ -94,16 +94,18 @@ int matrixNorm(Mat &src)
 	return 0;
 }
 
+/f
+
 
 //¹¦ÄÜ²âÊÔÇø
-int main()
-{
-	Mat src = imread("samples/rgb.png", 1);
-	//matrixmeanStdDev(src);
-	//matrixMeanSum(src);
-	//matrixNorm(src);
-	matrixcalcCovarMatrix(src);
-
-	std::cin.get();
-	return 0;
-}
+//int main()
+//{
+//	Mat src = imread("samples/rgb.png", 1);
+//	//matrixmeanStdDev(src);
+//	//matrixMeanSum(src);
+//	//matrixNorm(src);
+//	matrixcalcCovarMatrix(src);
+//
+//	std::cin.get();
+//	return 0;
+//}

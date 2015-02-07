@@ -25,7 +25,7 @@ void thresh_callback(int, void* );
 /**
  * @function main
  */
-int main( int, char** argv )
+int moments_demo( int, char** argv )
 {
   /// Load source image and convert it to gray
   src = imread("samples//200.png", 1 );

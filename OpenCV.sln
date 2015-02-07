@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OpenCV", "OpenCV\OpenCV.vcxproj", "{45B756FF-11C3-44E3-A3E8-EC7AA4D10A2D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Detection", "EdgeDetection\EdgeDetection.vcxproj", "{A2037EC4-6437-4140-9479-9A91B9287594}"
@@ -14,6 +16,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Transform", "Transform\Transform.vcxproj", "{6CCFAD49-43C6-4C58-ABDB-21E0759ABF31}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Track", "Track\Track.vcxproj", "{6554DA57-1312-4258-82A0-0B9B5399C992}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ML", "ML\ML.vcxproj", "{CF0416FD-ABAB-4827-A1AB-B3148F6D952B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{6554DA57-1312-4258-82A0-0B9B5399C992}.Debug|Win32.Build.0 = Debug|Win32
 		{6554DA57-1312-4258-82A0-0B9B5399C992}.Release|Win32.ActiveCfg = Release|Win32
 		{6554DA57-1312-4258-82A0-0B9B5399C992}.Release|Win32.Build.0 = Release|Win32
+		{CF0416FD-ABAB-4827-A1AB-B3148F6D952B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CF0416FD-ABAB-4827-A1AB-B3148F6D952B}.Debug|Win32.Build.0 = Debug|Win32
+		{CF0416FD-ABAB-4827-A1AB-B3148F6D952B}.Release|Win32.ActiveCfg = Release|Win32
+		{CF0416FD-ABAB-4827-A1AB-B3148F6D952B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

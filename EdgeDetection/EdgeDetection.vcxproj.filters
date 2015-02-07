@@ -34,6 +34,9 @@
     <Filter Include="源文件\filtersmooth">
       <UniqueIdentifier>{2e8e47d2-ac20-4fe0-bbe0-81938e39842b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\segment">
+      <UniqueIdentifier>{03f03ec9-b731-4723-9dc3-6d57dfb9a894}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,9 +75,6 @@
     <ClCompile Include="contour\contour4.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
-    <ClCompile Include="filtersmooth\filter.cpp">
-      <Filter>源文件\filtersmooth</Filter>
-    </ClCompile>
     <ClCompile Include="filtersmooth\blur_median_gaussian.cpp">
       <Filter>源文件\filtersmooth</Filter>
     </ClCompile>
@@ -87,9 +87,6 @@
     <ClCompile Include="contour\cvContours.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
-    <ClCompile Include="filtersmooth\meanshift_smooth_segmentation.cpp">
-      <Filter>源文件\filtersmooth</Filter>
-    </ClCompile>
     <ClCompile Include="contour\minarea.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
@@ -98,6 +95,18 @@
     </ClCompile>
     <ClCompile Include="contour\moments_demo.cpp">
       <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\meanshift_smooth_segmentation.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\watershed.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="filtersmooth\maxMinFilter.cpp">
+      <Filter>源文件\filtersmooth</Filter>
+    </ClCompile>
+    <ClCompile Include="filtersmooth\filter_main.cpp">
+      <Filter>源文件\filtersmooth</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
