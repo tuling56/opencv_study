@@ -20,6 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -32,6 +33,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\SETS\cv2410vc12\cv2410d_vc12.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -75,10 +77,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="affine.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="perspective.cpp" />
-    <ClCompile Include="透视矫正\rectAutoRectify.cpp" />
+    <ClCompile Include="source\affine\rotateimg2.cpp" />
+    <ClCompile Include="source\perspective\homograpyPerspective.cpp" />
+    <ClCompile Include="source\perspective\perspective.cpp" />
+    <ClCompile Include="source\perspective\rectAutoRectify.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transform.h" />

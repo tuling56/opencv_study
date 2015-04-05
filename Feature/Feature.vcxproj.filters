@@ -25,42 +25,18 @@
     <Filter Include="源文件\connectedomain">
       <UniqueIdentifier>{4ec360c4-1df5-4a8d-bf5d-004c597193b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\hog">
+      <UniqueIdentifier>{3e60c0aa-ff79-465c-af0e-a000f4374113}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="corner\sift_feature.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
-    <ClCompile Include="corner\surf_feature.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
-    <ClCompile Include="corner\surf_feature_opencv.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
-    <ClCompile Include="corner\harris_corner_detect.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
-    <ClCompile Include="corner\susan_corner_detect.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
-    <ClCompile Include="corner\fast_corner_detect.cpp">
-      <Filter>源文件\corner</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="histgram\calcDrawHist.cpp">
       <Filter>源文件\histgram</Filter>
     </ClCompile>
-    <ClCompile Include="histgram\calcHistDistance.cpp">
-      <Filter>源文件\histgram</Filter>
-    </ClCompile>
     <ClCompile Include="histgram\equalizeHist.cpp">
-      <Filter>源文件\histgram</Filter>
-    </ClCompile>
-    <ClCompile Include="histgram\mutiDim.cpp">
-      <Filter>源文件\histgram</Filter>
-    </ClCompile>
-    <ClCompile Include="histgram\oneDim.cpp">
       <Filter>源文件\histgram</Filter>
     </ClCompile>
     <ClCompile Include="corner\firecorner.cpp">
@@ -81,8 +57,47 @@
     <ClCompile Include="connectedomain\mserArea.cpp">
       <Filter>源文件\connectedomain</Filter>
     </ClCompile>
-    <ClCompile Include="corner\freak_demo.cpp">
+    <ClCompile Include="getFiles.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\surf_match.cpp">
       <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\sift_match.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\surf_match_opencv.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\freak_match.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\fast_detect.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\susan_detect.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="corner\harris_detect.cpp">
+      <Filter>源文件\corner</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\mutiDimHistDraw.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\oneDimHistDraw.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="histgram\histMatch.cpp">
+      <Filter>源文件\histgram</Filter>
+    </ClCompile>
+    <ClCompile Include="connectedomain\fixDomain.cpp">
+      <Filter>源文件\connectedomain</Filter>
+    </ClCompile>
+    <ClCompile Include="hog\hog.cpp">
+      <Filter>源文件\hog</Filter>
+    </ClCompile>
+    <ClCompile Include="hog\peopledetect.cpp">
+      <Filter>源文件\hog</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

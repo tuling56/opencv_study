@@ -2,90 +2,72 @@
 * Copyright(c) 2015 tuling56
 *
 * File:	xml_whole.cpp
-* Brief: OpenCV xmlè¯»å†™
+* Brief: OpenCV xml¶ÁĞ´
 * Source:http://blog.csdn.net/augusdi/article/details/8865515
-* Status: æœªå®Œæˆè°ƒé€šæµ‹è¯•
+* Status: Íê³Éµ÷ÊÔ
 * Date:	[1/14/2015 jmy]
 ************************************************************************/
 
-
 #include <cxcore.h>
 #include <highgui.h>
-
 //#include <opencv2/core/core.hpp>
 
 
-int sub_test_opencv_xml_write(void)
+static int xml_write(void)
 {
-	// åˆ›å»ºæ–‡ä»¶å­˜å‚¨å¯¹è±¡
+	// ´´½¨ÎÄ¼ş´æ´¢¶ÔÏó
 	CvFileStorage *fs=cvOpenFileStorage("test.xml",0,CV_STORAGE_WRITE);
-	// å†™æ³¨é‡Š
-	cvWriteComment(fs,"æµ‹è¯•å†™XMLæ–‡ä»¶",1);
+	// Ğ´×¢ÊÍ
+	cvWriteComment(fs,"²âÊÔĞ´XMLÎÄ¼ş",1);
 	
-	// å¼€å§‹å†™ç»“æ„ï¼Œç±»å‹æ˜¯å›¾mapï¼Œä¹Ÿå°±æ˜¯æœ‰åå­—çš„æ— åºèŠ‚ç‚¹é›†åˆ
+	// ¿ªÊ¼Ğ´½á¹¹£¬ÀàĞÍÊÇÍ¼map£¬Ò²¾ÍÊÇÓĞÃû×ÖµÄÎŞĞò½Úµã¼¯ºÏ
 	cvStartWriteStruct(fs,"Employee",CV_NODE_MAP);
-	// æ³¨é‡Š
-	cvWriteComment(fs,"MAPç±»å‹ï¼Œå§“åï¼Œå¹´é¾„ï¼Œè–ªæ°´",1);
-	// å§“å
-	cvWriteString(fs,"name","åˆ˜è¶Š",0);
-	// å¹´é¾„
-	cvWriteInt(fs,"age",18);
-	// è–ªæ°´
-	cvWriteReal(fs,"salary",2780.3);
-	// é”€å”®æ¬¡æ•°
-	cvWriteInt(fs,"sales_count",4);
+	cvWriteComment(fs,"MAPÀàĞÍ£¬ĞÕÃû£¬ÄêÁä£¬Ğ½Ë®",1);// ×¢ÊÍ
+    cvWriteString(fs, "name", "ÁõÔ½", 0);	// ĞÕÃû
+	cvWriteInt(fs,"age",18);// ÄêÁä
+	cvWriteReal(fs,"salary",2780.3);// Ğ½Ë®
+	cvWriteInt(fs,"sales_count",4);// ÏúÊÛ´ÎÊı
 	{
-		// é”€å”®å…·ä½“æ•°æ®
-		int sales_record[]={30000,4200,50090};
-		// æ³¨é‡Š
-		cvWriteComment(fs,"SEQç±»å‹ï¼Œé”€å”®è®°å½•",1);
-		// å¼€å§‹å†™ç»“æ„ï¼Œç±»å‹æ˜¯åºåˆ—sequenceï¼Œæ— åå­—çš„æœ‰åºèŠ‚ç‚¹é›†åˆ
+		
+		int sales_record[]={30000,4200,50090};// ÏúÊÛ¾ßÌåÊı¾İ
+		cvWriteComment(fs,"SEQÀàĞÍ£¬ÏúÊÛ¼ÇÂ¼",1);// ×¢ÊÍ
+		// ¿ªÊ¼Ğ´½á¹¹£¬ÀàĞÍÊÇĞòÁĞsequence£¬ÎŞÃû×ÖµÄÓĞĞò½Úµã¼¯ºÏ
 		cvStartWriteStruct(fs,"sales_record",CV_NODE_SEQ);
-		// å‰3æ¡é”€å”®è®°å½•
-		cvWriteRawData(fs,sales_record,3,"i");
-		// ç¬¬4æ¡é”€å”®è®°å½•ï¼Œæ³¨æ„æ— åå­—
-		cvWriteInt(fs,0,6100);
-		// ç»“æŸ
-		cvEndWriteStruct(fs);
+		cvWriteRawData(fs,sales_record,3,"i");// Ç°3ÌõÏúÊÛ¼ÇÂ¼
+		cvWriteInt(fs,0,6100);// µÚ4ÌõÏúÊÛ¼ÇÂ¼£¬×¢ÒâÎŞÃû×Ö
+		cvEndWriteStruct(fs);// ½áÊø
 	}
 	{
-		// æ³¨é‡Š
-		cvWriteComment(fs,"MAPç±»å‹ï¼Œäº²å‹",1);
-		// å¼€å§‹
-		cvStartWriteStruct(fs,"Parent",CV_NODE_MAP);
-		// çˆ¶äº²
-		cvWriteString(fs,"father","æ¨èˆœ");
-		// æ¯äº²
-		cvWriteString(fs,"mother","ç‹å¨Ÿ");
-		// ç»“æŸ
-		cvEndWriteStruct(fs);
+		
+		cvWriteComment(fs,"MAPÀàĞÍ£¬Ç×ÓÑ",1);// ×¢ÊÍ
+		cvStartWriteStruct(fs,"Parent",CV_NODE_MAP);// ¿ªÊ¼
+		cvWriteString(fs,"father","ÑîË´");// ¸¸Ç×
+		cvWriteString(fs,"mother","Íõ¾ê");// Ä¸Ç×
+		cvEndWriteStruct(fs);// ½áÊø
 	}
-	// ç»“æŸ
-	cvEndWriteStruct(fs);
-	// é‡Šæ”¾æ–‡ä»¶å­˜å‚¨å¯¹è±¡
-	cvReleaseFileStorage(&fs);
+	cvEndWriteStruct(fs);	// ½áÊø
+	cvReleaseFileStorage(&fs);// ÊÍ·ÅÎÄ¼ş´æ´¢¶ÔÏó
+	return 0;
 }
 
-int sub_test_opencv_xml_read(void)
+
+static int xml_read(void)
 {
-	// æ–‡ä»¶èŠ‚ç‚¹
-	CvFileNode * node, *node2;
+	
+	CvFileNode * node, *node2;// ÎÄ¼ş½Úµã
 	char * str;
 	int count;
-	int * d;
-	
-	//cve_dm.debug_break();
-	// æ‰“å¼€XMLæ–‡ä»¶
-	CvFileStorage *fs = cvOpenFileStorage("test.xml",0,CV_STORAGE_READ);
-	// è·å¾—ç¬¬ä¸€å±‚æ•°æ®èŠ‚ç‚¹
+
+	CvFileStorage *fs = cvOpenFileStorage("test.xml",0,CV_STORAGE_READ);// ´ò¿ªXMLÎÄ¼ş
+	// »ñµÃµÚÒ»²ãÊı¾İ½Úµã
 	node = cvGetFileNodeByName(fs,0,"Employee");
-	str = cvReadStringByName(fs,node,"name");
-	printf("\nå§“å=%s",str);
-	printf("\nå¹´é¾„=%d",cvReadIntByName(fs,node,"age"));
-	printf("\nè–ªæ°´=%g",cvReadRealByName(fs,node,"salary"));
+	str = const_cast<char*>(cvReadStringByName(fs, node, "name"));
+	printf("\nĞÕÃû=%s",str);
+	printf("\nÄêÁä=%d",cvReadIntByName(fs,node,"age"));
+	printf("\nĞ½Ë®=%g",cvReadRealByName(fs,node,"salary"));
 	count = cvReadIntByName(fs,node,"sales_count");
-	printf("\né”€å”®%dæ¡",count);
-	d = cvAlloc(sizeof(int)*count);
+	printf("\nÏúÊÛ%dÌõ",count);
+	int* d = (int*)cvAlloc(sizeof(int)*count);
 	if(d)
 	{
 		int i;
@@ -93,24 +75,28 @@ int sub_test_opencv_xml_read(void)
 		if(node2)
 		{
 			cvReadRawData(fs,node2,d,"i");
-			printf("\né”€å”®è®°å½•=");
+			printf("\nÏúÊÛ¼ÇÂ¼=");
 			for(i=0;i<count;i++)
 				printf("%d, ",d[i]);
 		}
 		cvFree(&d);
 	}
-	// è·å¾—ç¬¬äºŒå±‚èŠ‚ç‚¹
+	// »ñµÃµÚ¶ş²ã½Úµã
 	node = cvGetFileNodeByName(fs,node,"Parent");
-	printf("\næ ¹èŠ‚ç‚¹=%s",cvGetFileNodeName(node));
-	str = cvReadStringByName(fs,node,"father");
-	printf("\nçˆ¶äº²=%s",str);
-	str = cvReadStringByName(fs,node,"mother");
-	printf("\næ¯äº²=%s",str);
-}
-
-//åŠŸèƒ½æµ‹è¯•åŒº
-int main()
-{
-	sub_test_opencv_xml_write();
+	printf("\n¸ù½Úµã=%s",cvGetFileNodeName(node));
+	str = const_cast<char*>(cvReadStringByName(fs, node, "father"));
+	printf("\n¸¸Ç×=%s",str);
+	str = const_cast<char*>(cvReadStringByName(fs, node, "mother"));
+	printf("\nÄ¸Ç×=%s",str);
 	return 0;
 }
+
+
+//¹¦ÄÜ²âÊÔÇø
+//int main()
+//{
+//	xml_write();
+//	xml_read();
+//	getchar();
+//	return 0;
+//}

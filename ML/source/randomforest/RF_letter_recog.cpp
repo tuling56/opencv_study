@@ -5,7 +5,7 @@ using namespace cv;
 
 void buildRandomForestClassifier(const char* _dataFileName);
 
-void main(void)
+void main1(void)
 {
 	printf("\nThis is letter recognition sample.\n"
 		"classifier is Random Trees\n" );

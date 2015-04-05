@@ -37,6 +37,9 @@
     <Filter Include="源文件\segment">
       <UniqueIdentifier>{03f03ec9-b731-4723-9dc3-6d57dfb9a894}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\saliency">
+      <UniqueIdentifier>{69e6603e-64e9-4a09-b177-641278e724c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,20 +51,11 @@
     <ClCompile Include="edge\canny_trackbar.cpp">
       <Filter>源文件\edge</Filter>
     </ClCompile>
-    <ClCompile Include="binaryzation\binaryzation.cpp">
-      <Filter>源文件\binaryzation</Filter>
-    </ClCompile>
     <ClCompile Include="binaryzation\adaptiveThreshold.cpp">
       <Filter>源文件\binaryzation</Filter>
     </ClCompile>
-    <ClCompile Include="linear\line_dete.cpp">
-      <Filter>源文件\linear</Filter>
-    </ClCompile>
     <ClCompile Include="circle\hough_circle.cpp">
       <Filter>源文件\circle</Filter>
-    </ClCompile>
-    <ClCompile Include="linear\hough_line.cpp">
-      <Filter>源文件\linear</Filter>
     </ClCompile>
     <ClCompile Include="square\sqaure_detection.cpp">
       <Filter>源文件\square</Filter>
@@ -69,28 +63,13 @@
     <ClCompile Include="edge\edge_trackbar.cpp">
       <Filter>源文件\edge</Filter>
     </ClCompile>
-    <ClCompile Include="contour\contour3.cpp">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
-    <ClCompile Include="contour\contour4.cpp">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
     <ClCompile Include="filtersmooth\blur_median_gaussian.cpp">
       <Filter>源文件\filtersmooth</Filter>
     </ClCompile>
     <ClCompile Include="filtersmooth\whole.cpp">
       <Filter>源文件\filtersmooth</Filter>
     </ClCompile>
-    <ClCompile Include="contour\contours.c">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
-    <ClCompile Include="contour\cvContours.cpp">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
     <ClCompile Include="contour\minarea.cpp">
-      <Filter>源文件\contour</Filter>
-    </ClCompile>
-    <ClCompile Include="contour\contour.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
     <ClCompile Include="contour\moments_demo.cpp">
@@ -108,9 +87,66 @@
     <ClCompile Include="filtersmooth\filter_main.cpp">
       <Filter>源文件\filtersmooth</Filter>
     </ClCompile>
+    <ClCompile Include="linear\warpHoughLine.cpp">
+      <Filter>源文件\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="linear\lsd.c">
+      <Filter>源文件\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="linear\lsdLineDete.cpp">
+      <Filter>源文件\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="linear\stdHoughLine.cpp">
+      <Filter>源文件\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="linear\houghlines.cpp">
+      <Filter>源文件\linear</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryzation\niblack.cpp">
+      <Filter>源文件\binaryzation</Filter>
+    </ClCompile>
+    <ClCompile Include="binaryzation\threshold.cpp">
+      <Filter>源文件\binaryzation</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\GrabcutDemo.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\snake1.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\snake.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="saliency\saliency.cpp">
+      <Filter>源文件\saliency</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contour_area.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contours_g1.c">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contours_g1.1.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contours_g2.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contour3_4.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\contour1_2.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\shapeDescriptor.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="detection.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="warpHoughLine.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

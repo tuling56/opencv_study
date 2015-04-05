@@ -53,12 +53,14 @@ static void onMouse( int event, int x, int y, int flags, void* )
         line( watershedimg, prevPt, pt, Scalar::all(255), 5, 8, 0 );
         prevPt = pt;
         imshow("image", watershedimg);
+		imshow("markerMask", markerMask);
     }
 }
 
 int mwatershed( int argc, char** argv )
+//int main(int argc, char** argv)
 {
-    char* filename = argc >= 2 ? argv[1] : (char*)"samples\\stuff.jpg";
+    char* filename = argc >= 2 ? argv[1] : (char*)"samples\\grabCut.png";
     Mat img0 = imread(filename, 1), imgGray;
 
     if( img0.empty() ) {
@@ -77,8 +79,7 @@ int mwatershed( int argc, char** argv )
 
     for(;;)
     {
-        int c = waitKey(0);
-
+		int c = waitKey(0);
         if( (char)c == 27 )
             break;
 
@@ -104,7 +105,7 @@ int mwatershed( int argc, char** argv )
             int idx = 0;
             for( ; idx >= 0; idx = hierarchy[idx][0], compCount++ ) //统计的是最外层的轮廓
                 drawContours(markers, contours, idx, Scalar::all(compCount+1), -1, 8, hierarchy, INT_MAX);
-			//imshow("markers", markers);
+			imshow("markers", markers);
 
             if( compCount == 0 )
                 continue;
@@ -115,7 +116,6 @@ int mwatershed( int argc, char** argv )
                 int b = theRNG().uniform(0, 255);
                 int g = theRNG().uniform(0, 255);
                 int r = theRNG().uniform(0, 255);
-
                 colorTab.push_back(Vec3b((uchar)b, (uchar)g, (uchar)r));
             }
 
@@ -147,3 +147,12 @@ int mwatershed( int argc, char** argv )
 
     return 0;
 }
+
+//功能测试区
+//int main(int argc,char**argv)
+//{
+//	mwatershed(0, NULL);
+//
+//    std::cin.get();
+//	return 0;
+//}

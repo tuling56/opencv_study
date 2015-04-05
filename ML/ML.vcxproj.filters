@@ -21,5 +21,8 @@
     <ClCompile Include="source\randomforest\RF_letter_recog.cpp">
       <Filter>源文件\randomforest</Filter>
     </ClCompile>
+    <ClCompile Include="source\letter_recog.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

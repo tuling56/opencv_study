@@ -1,15 +1,22 @@
-//图像的二值化
-//By MoreWindows (http://blog.csdn.net/MoreWindows)
-#include <opencv2/opencv.hpp>
-using namespace std;
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	binaryzation.cpp
+* Brief: 滑动条调节阈值，进行图像二值化
+* Source:http://blog.csdn.net/morewindows/article/details/8239678
+* Status: 
+* Date:	[3/12/2015 jmy]
+************************************************************************/
 
-#pragma comment(linker, "/subsystem:\"windows\" /entry:\"mainCRTStartup\"")
+#include <opencv2/opencv.hpp>
+
+using namespace std;
 
 IplImage *g_pGrayImage = NULL;
 IplImage *g_pBinaryImage = NULL;
-const char *pstrWindowsBinaryTitle = "二值图(http://blog.csdn.net/MoreWindows)";
+const char *pstrWindowsBinaryTitle = "二值图";
 
-void on_trackbar(int pos)
+void binaryzation_trackbar(int pos)
 {
 	// 转为二值图
 	cvThreshold(g_pGrayImage, g_pBinaryImage, pos, 255, CV_THRESH_BINARY);
@@ -17,17 +24,21 @@ void on_trackbar(int pos)
 	cvShowImage(pstrWindowsBinaryTitle, g_pBinaryImage);
 }
 
-int main( int argc, char** argv )
+int binaryzation(char*path)
 {	
-	const char *pstrWindowsSrcTitle = "原图(http://blog.csdn.net/MoreWindows)";
+	const char *pstrWindowsSrcTitle = "原图";
 	const char *pstrWindowsToolBarName = "二值图阈值";
 
 	// 从文件中加载原图
-	IplImage *pSrcImage = cvLoadImage("002.jpg", CV_LOAD_IMAGE_UNCHANGED);
+	IplImage *pSrcImage = cvLoadImage(path, CV_LOAD_IMAGE_UNCHANGED);
 
-	// 转为灰度图
-	g_pGrayImage =  cvCreateImage(cvGetSize(pSrcImage), IPL_DEPTH_8U, 1);
-	cvCvtColor(pSrcImage, g_pGrayImage, CV_BGR2GRAY);
+	// 如果不是灰度图则转为灰度图
+	if (pSrcImage->nChannels!=1)
+	{
+		g_pGrayImage =  cvCreateImage(cvGetSize(pSrcImage), IPL_DEPTH_8U, 1);
+		cvCvtColor(pSrcImage, g_pGrayImage, CV_BGR2GRAY);
+	}
+
 
 	// 创建二值图
 	g_pBinaryImage = cvCreateImage(cvGetSize(g_pGrayImage), IPL_DEPTH_8U, 1);
@@ -40,9 +51,9 @@ int main( int argc, char** argv )
 
 	// 滑动条	
 	int nThreshold = 0;
-	cvCreateTrackbar(pstrWindowsToolBarName, pstrWindowsBinaryTitle, &nThreshold, 254, on_trackbar);
+	cvCreateTrackbar(pstrWindowsToolBarName, pstrWindowsBinaryTitle, &nThreshold, 254, binaryzation_trackbar);
 
-	on_trackbar(1);
+	binaryzation_trackbar(1);
 
 	cvWaitKey(0);
 
@@ -51,5 +62,6 @@ int main( int argc, char** argv )
 	cvReleaseImage(&pSrcImage);
 	cvReleaseImage(&g_pGrayImage);
 	cvReleaseImage(&g_pBinaryImage);
+	
 	return 0;
 }

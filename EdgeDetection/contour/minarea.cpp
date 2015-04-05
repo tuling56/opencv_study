@@ -8,7 +8,6 @@
 * Date:	[1/22/2015 jmy]
 ************************************************************************/
 
-
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
@@ -64,7 +63,6 @@ int minarea_main( int /*argc*/, char** /*argv*/ )
 
 		//绘制外接最小圆
         circle(img, center, cvRound(radius), Scalar(0, 255, 255), 1, CV_AA);
-
 
         imshow( "rect & circle", img );
         char key = (char)waitKey();

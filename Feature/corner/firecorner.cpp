@@ -111,3 +111,13 @@ void CheckFireAngle(Mat &img)
 	imshow("Taper angle",angleImg);
 	waitKey();
 }
+
+//¹¦ÄÜ²âÊÔÇø
+//int main(int argc,char**argv)
+//{
+//	Mat src = imread("samples//firecorner.jpg",0);
+//	CheckFireAngle(src);
+//
+//	std::cin.get();
+//	return 0;
+//}

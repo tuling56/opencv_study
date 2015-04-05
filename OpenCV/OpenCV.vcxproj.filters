@@ -25,9 +25,6 @@
     <Filter Include="源文件\roi">
       <UniqueIdentifier>{5cf08ea7-96d7-49e7-9824-d2ec0d1348d2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\test">
-      <UniqueIdentifier>{0a7f6215-91b2-4199-a1ba-a1e29130ba6d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\video">
       <UniqueIdentifier>{75efa6cf-f4e3-4933-94a6-334787de04af}</UniqueIdentifier>
     </Filter>
@@ -60,12 +57,6 @@
     <ClCompile Include="channels\SobelColor.cpp">
       <Filter>源文件\channels</Filter>
     </ClCompile>
-    <ClCompile Include="test\saltImage.cpp">
-      <Filter>源文件\test</Filter>
-    </ClCompile>
-    <ClCompile Include="test\colorReduce.cpp">
-      <Filter>源文件\test</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -87,9 +78,6 @@
     <ClCompile Include="base\visit_elem_mat.cpp">
       <Filter>源文件\base</Filter>
     </ClCompile>
-    <ClCompile Include="xml\xml.cpp">
-      <Filter>源文件\xml</Filter>
-    </ClCompile>
     <ClCompile Include="video\frameMean.cpp">
       <Filter>源文件\video</Filter>
     </ClCompile>
@@ -107,6 +95,18 @@
     </ClCompile>
     <ClCompile Include="pyramid\pyr.cpp">
       <Filter>源文件\pyramid</Filter>
+    </ClCompile>
+    <ClCompile Include="video\videolabel.cpp">
+      <Filter>源文件\video</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xml_read_write.cpp">
+      <Filter>源文件\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xml_whole.cpp">
+      <Filter>源文件\xml</Filter>
+    </ClCompile>
+    <ClCompile Include="xml\xml_class.cpp">
+      <Filter>源文件\xml</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -22,8 +22,7 @@ using std::endl;
  *  ²ÎÊý£º
  *  ×´Ì¬:
  */
-
-int main_()
+int frameMean()
 {
 	CvCapture* capture = cvCaptureFromFile( "samples/video/test_o2.mp4");//"test.avi");//
 	IplImage* frame = NULL;

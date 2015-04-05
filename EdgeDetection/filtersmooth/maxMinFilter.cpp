@@ -119,38 +119,38 @@ void maxminFilter(IplImage* src, IplImage* dst, int width, int height = 0, int m
 	}
 }
 
-
-int main()
-{
-	IplImage* src = cvLoadImage("samples\\swt.png", 0);
-	IplImage* dst = cvCreateImage(cvGetSize(src), 8, 1);//在这里可以看到dst是空图像
-	cvNamedWindow("original image");
-	cvShowImage("original image", src);
-
-	maxminFilter(src, dst, 3, 3, KCV_MAX);
-	cvNamedWindow("maximum filter");
-	cvShowImage("maximum filter", dst);
-	cvSaveImage("maximum filter.jpg", dst);
-
-	maxminFilter(src, dst, 3, 3, KCV_MIN);
-	cvNamedWindow("minimum filter");
-	cvShowImage("minimum filter", dst);
-	cvSaveImage("minimum filter.jpg", dst);
-
-	maxminFilter(src, dst, 3, 3, KCV_NMS_MAX);
-	cvNamedWindow("non-maximum suppression");
-	cvShowImage("non-maximum suppression", dst);
-	cvSaveImage("non-maximum suppression.jpg", dst);
-
-	maxminFilter(src, dst, 3, 3, KCV_NMS_MIN);
-	cvNamedWindow("non-minimum suppression");
-	cvShowImage("non-minimum suppression", dst);
-	cvSaveImage("non-minimum suppression.jpg", dst);
-
-	cvWaitKey(0);
-	cvDestroyAllWindows();
-	cvReleaseImage(&src);
-	cvReleaseImage(&dst);
-
-	return 0;
-}
+//功能测试区
+//int main()
+//{
+//	IplImage* src = cvLoadImage("samples\\swt.png", 0);
+//	IplImage* dst = cvCreateImage(cvGetSize(src), 8, 1);//在这里可以看到dst是空图像
+//	cvNamedWindow("original image");
+//	cvShowImage("original image", src);
+//
+//	maxminFilter(src, dst, 3, 3, KCV_MAX);
+//	cvNamedWindow("maximum filter");
+//	cvShowImage("maximum filter", dst);
+//	cvSaveImage("maximum filter.jpg", dst);
+//
+//	maxminFilter(src, dst, 3, 3, KCV_MIN);
+//	cvNamedWindow("minimum filter");
+//	cvShowImage("minimum filter", dst);
+//	cvSaveImage("minimum filter.jpg", dst);
+//
+//	maxminFilter(src, dst, 3, 3, KCV_NMS_MAX);
+//	cvNamedWindow("non-maximum suppression");
+//	cvShowImage("non-maximum suppression", dst);
+//	cvSaveImage("non-maximum suppression.jpg", dst);
+//
+//	maxminFilter(src, dst, 3, 3, KCV_NMS_MIN);
+//	cvNamedWindow("non-minimum suppression");
+//	cvShowImage("non-minimum suppression", dst);
+//	cvSaveImage("non-minimum suppression.jpg", dst);
+//
+//	cvWaitKey(0);
+//	cvDestroyAllWindows();
+//	cvReleaseImage(&src);
+//	cvReleaseImage(&dst);
+//
+//	return 0;
+//}

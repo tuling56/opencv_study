@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opencv_storage>
+<!-- config info xml file -->
+<ww type_id="ww">
+  <x>329</x>
+  <y>441</y>
+  <width>188</width>
+  <height>48</height>
+  <loc>
+    329 441 188 48</loc></ww>
+<kai type_id="kai">
+  <x>516</x>
+  <y>278</y>
+  <width>255</width>
+  <height>75</height>
+  <loc>
+    516 278 255 75</loc></kai>
+<wen type_id="wen">
+  <x>590</x>
+  <y>400</y>
+  <width>190</width>
+  <height>61</height>
+  <loc>
+    590 400 190 61</loc></wen>
+<vv type_id="vv">
+  <x>308</x>
+  <y>151</y>
+  <width>238</width>
+  <height>52</height>
+  <loc>
+    308 151 238 52</loc></vv>
+</opencv_storage>

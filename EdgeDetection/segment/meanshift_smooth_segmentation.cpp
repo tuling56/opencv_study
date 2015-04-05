@@ -84,7 +84,7 @@ int meanshift_smooth_segmentation()
         return -1;
     }
    */
-    meandemoimg = imread("samples//scene//111-1113_IMG.JPG");
+    meandemoimg = imread("samples//grabCut.png");
     if( meandemoimg.empty() )
     {
         printf("can't load the img\n");

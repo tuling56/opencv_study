@@ -20,6 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -79,7 +80,7 @@
     <ClCompile Include="morphy1.cpp" />
     <ClCompile Include="morphy2.cpp" />
     <ClCompile Include="morphy_whole.cpp" />
-    <ClCompile Include="watersheds.cpp" />
+    <ClCompile Include="floodFill.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="morphology.h" />

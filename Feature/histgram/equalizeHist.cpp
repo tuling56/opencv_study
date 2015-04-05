@@ -1,9 +1,13 @@
-//-----------------------------------【函数】------------------------------
-//	描述:直方图均衡化，
-//  说明:opencv的直方图均衡化函数cvEqualizeHist()针对的都是单通道，所以对于彩色图像要先进行通道分离，
-//		  对单通道图像分别进行均衡化，最后再合并。		
-//  参考：http://blog.csdn.net/sundy_2004/article/details/7259614
-//-------------------------------------------------------------------------
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	equalizeHist.cpp
+* Brief:  彩色图像直方图均衡化
+* Source: http://blog.csdn.net/sundy_2004/article/details/7259614
+* Status: opencv的直方图均衡化函数cvEqualizeHist()针对的都是单通道，所以对于彩色图像要先进行通道分离，
+          对单通道图像分别进行均衡化，最后再合并。	
+* Date:	[3/12/2015 jmy]
+************************************************************************/
 
 #include <cv.h>
 #include <highgui.h>
@@ -38,6 +42,7 @@ int equalizeHist(char*path)
 		cvShowImage( "Equalize", dst );
 
 		cvWaitKey(0);
+		
 		//释放资源
 		for( i = 0; i < src -> nChannels; i++ )
 		{
@@ -52,3 +57,11 @@ int equalizeHist(char*path)
 
 	return 0;
 }
+
+//功能测试区
+//int main(int argc,char**argv)
+//{
+//	equalizeHist("samples//lena.jpg");
+//    std::cin.get();
+//	return 0;
+//}

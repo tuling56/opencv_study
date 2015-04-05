@@ -1,3 +1,13 @@
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	calcDrawHist.cpp
+* Brief: 彩色图像通道分离，并绘制各通道的直方图
+* Source:
+* Status: 
+* Date:	[3/12/2015 jmy]
+************************************************************************/
+
 #include <highgui.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/legacy/compat.hpp>
@@ -6,7 +16,8 @@
 using namespace cv;
 
 IplImage *DrawHistogram(CvHistogram*hist, float scaleX = 1, float scaleY = 1)
-{  // 画直方图   
+{  
+	// 画直方图   
 	float histMax = 0;  
 	cvGetMinMaxHistValue(hist, 0 , &histMax, 0, 0);  // 取得直方图中的最值   
 	IplImage *imgHist = cvCreateImage(cvSize(256 * scaleX, 64*scaleY), 8, 1);
@@ -47,9 +58,9 @@ void calcDrawHist(char* path)
 	IplImage* imgGreen = cvCreateImage(cvGetSize(img), 8, 1);
 	IplImage* imgBlue = cvCreateImage(cvGetSize(img), 8, 1);
 
-	cvSplit(img, imgBlue, imgGreen, imgRed, NULL);
 	//cvSplit的参数是按照B，G，R这样的一个顺序的。图像在内存中的存储也是按照B，G，R的顺序进行存储。
-
+	cvSplit(img, imgBlue, imgGreen, imgRed, NULL);
+	
 	
 	//计算亮度直方图（灰度直方图）
 	IplImage*grayimg=cvCreateImage(cvGetSize(img),img->depth,1);
@@ -58,9 +69,7 @@ void calcDrawHist(char* path)
 	IplImage* imgHistGray = DrawHistogram(hist);
 	cvClearHist(hist);
 	
-	
-	
-	
+
 	//（2）计算直方图，显示直方图
 	//使用R通道图像，计算R通道图像的直方图：
 	cvCalcHist(&imgRed, hist, 0, 0);
@@ -95,5 +104,15 @@ void calcDrawHist(char* path)
 	cvReleaseImage(&imgHistRed);
 	cvReleaseImage(&imgHistGreen);
 	cvReleaseImage(&imgHistBlue);
+	
 	cvDestroyAllWindows(); 
 }
+
+//功能测试区
+//int main(int argc,char**argv)
+//{
+//    
+//	calcDrawHist("samples//lena.jpg");
+//	waitKey();
+//	return 0;
+//}

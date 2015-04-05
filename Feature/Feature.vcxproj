@@ -20,6 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -78,22 +79,26 @@
   <ItemGroup>
     <ClCompile Include="connectedomain\countConnecteDomain.cpp" />
     <ClCompile Include="connectedomain\findMaxConnectedDomain.cpp" />
+    <ClCompile Include="connectedomain\fixDomain.cpp" />
     <ClCompile Include="connectedomain\mserArea.cpp" />
-    <ClCompile Include="corner\fast_corner_detect.cpp" />
+    <ClCompile Include="corner\fast_detect.cpp" />
     <ClCompile Include="corner\firecorner.cpp" />
-    <ClCompile Include="corner\freak_demo.cpp" />
-    <ClCompile Include="corner\harris_corner_detect.cpp" />
+    <ClCompile Include="corner\freak_match.cpp" />
+    <ClCompile Include="corner\harris_detect.cpp" />
     <ClCompile Include="corner\main_corner.cpp" />
-    <ClCompile Include="corner\sift_feature.cpp" />
-    <ClCompile Include="corner\surf_feature.cpp" />
-    <ClCompile Include="corner\surf_feature_opencv.cpp" />
-    <ClCompile Include="corner\susan_corner_detect.cpp" />
+    <ClCompile Include="corner\sift_match.cpp" />
+    <ClCompile Include="corner\surf_match.cpp" />
+    <ClCompile Include="corner\surf_match_opencv.cpp" />
+    <ClCompile Include="corner\susan_detect.cpp" />
+    <ClCompile Include="getFiles.cpp" />
     <ClCompile Include="histgram\calcDrawHist.cpp" />
-    <ClCompile Include="histgram\calcHistDistance.cpp" />
+    <ClCompile Include="histgram\histMatch.cpp" />
     <ClCompile Include="histgram\equalizeHist.cpp" />
     <ClCompile Include="histgram\main_histgram.cpp" />
-    <ClCompile Include="histgram\mutiDim.cpp" />
-    <ClCompile Include="histgram\oneDim.cpp" />
+    <ClCompile Include="histgram\mutiDimHistDraw.cpp" />
+    <ClCompile Include="histgram\oneDimHistDraw.cpp" />
+    <ClCompile Include="hog\hog.cpp" />
+    <ClCompile Include="hog\peopledetect.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>

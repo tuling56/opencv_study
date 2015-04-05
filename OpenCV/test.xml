@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opencv_storage>
+<!-- config info xml file -->
+<Targset type_id="23">
+  <Object>"23"</Object>
+  <x>445</x>
+  <y>207</y>
+  <width>289</width>
+  <height>61</height>
+  <loc>
+    445 207 289 61</loc></Targset>
+<Targset type_id="2345">
+  <Object>"2345"</Object>
+  <x>456</x>
+  <y>329</y>
+  <width>333</width>
+  <height>34</height>
+  <loc>
+    456 329 333 34</loc></Targset>
+</opencv_storage>

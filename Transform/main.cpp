@@ -1,19 +1,20 @@
-//几何变换的主入口
+//图像变换的主入口
 
 #include <stdio.h>
 #include "transform.h"
 
 
-int main()
+int main_()
 {
-	/*仿射变换*/
+	//-----------------------------------【仿射变换】-----------------------------
 	//affine();
 	
-	/*透视*/
+	//-----------------------------------【透视变换】-----------------------------
 	//perspective();
-	 
-	/*四边形目标自动透视矫正*/
-	rectAutoRectify();  
+	
+	//四边形目标自动透视矫正
+	//rectAutoRectify();  	
+	homograpyPerspective();
 		
 	getchar();
 	return 0;

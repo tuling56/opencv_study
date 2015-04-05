@@ -1,4 +1,12 @@
-// 功能：形态学的开/闭，膨胀/腐蚀运算
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	morphy1.cpp
+* Brief: 形态学的开/闭，膨胀/腐蚀运算,OpenCV1.0结构
+* Source:
+* Status: 
+* Date:	[3/7/2015 jmy]
+************************************************************************/
 
 #include "cv.h"  
 #include "highgui.h"  
@@ -7,8 +15,8 @@
 
 IplImage *src=0;  
 IplImage *dst=0;  
-IplConvKernel *element=0;//声明一个结构元素  
-int element_shape=CV_SHAPE_RECT;//长方形形状的元素  
+IplConvKernel *element=0;//声明一个具体的结构元素  
+int element_shape=CV_SHAPE_RECT;//长方形形状类的元素  
 int max_iters=10;  
 int open_close_pos=0;  
 int erode_dilate_pos=0; 
@@ -17,9 +25,10 @@ void OpenClose(int pos)
 {  
 	int n=open_close_pos-max_iters;  
 	int an=n>0?n:-n;  
+	//an = 1;
 	element = cvCreateStructuringElementEx(an*2+1,an*2+1,an,an,element_shape,0);//创建结构元素  
 
-	if (n<0)  
+	if (n<0)  //开
 	{  
 		cvErode(src,dst,element,1);//腐蚀图像  
 		cvDilate(dst,dst,element,1);//膨胀图像  
@@ -36,7 +45,7 @@ void OpenClose(int pos)
 void ErodeDilate(int pos)  
 {  
 	int n=erode_dilate_pos-max_iters;  
-	int an=n>0?n:-n;  
+	int an=n>0?n:-n;  //an绝对是正值
 	element = cvCreateStructuringElementEx(an*2+1,an*2+1,an,an,element_shape,0);  
 	if (n<0)  
 	{  
@@ -50,16 +59,16 @@ void ErodeDilate(int pos)
 	cvShowImage("Erode/Dilate",dst);  
 }  
 
-int morphologyShow()  
+int morphy1(char*filename)  
 {  
 	//char *filename =argc ==2?argv[1]:(char *)"lena.jpg";      
-	if( (src = cvLoadImage("lena.jpg",1)) == 0 )  
+	if( (src = cvLoadImage(filename,1)) == 0 )  
 		return -1;  
 	dst=cvCloneImage(src);  
 
 	cvNamedWindow("Open/Close",1);  
 	cvNamedWindow("Erode/Dilate",1);  
-	open_close_pos = erode_dilate_pos = max_iters;  
+	open_close_pos = erode_dilate_pos = max_iters;  //初始设置，然后往两边偏移
 	cvCreateTrackbar("iterations","Open/Close",&open_close_pos,max_iters*2+1,OpenClose);  
 	cvCreateTrackbar("iterations","Erode/Dilate",&erode_dilate_pos,max_iters*2+1,ErodeDilate);  
 	for (;;)  
@@ -68,11 +77,11 @@ int morphologyShow()
 		OpenClose(open_close_pos);  
 		ErodeDilate(erode_dilate_pos);  
 		c= cvWaitKey(0);  
-		if (c==27)  
-		{  
+		if (c==27) {  
 			break;  
 		}  
-		switch(c) {  
+		switch(c)
+		{  
 		case 'e':  
 			element_shape=CV_SHAPE_ELLIPSE;  
 			break;  
@@ -96,3 +105,12 @@ int morphologyShow()
 	cvDestroyWindow("Erode/Dilate");  
 	return 0;  
 }  
+
+//功能测试区
+int main(int argc,char**argv)
+{
+	char*filename = "C:\\Users\\jmy\\Desktop\\1.png";
+	morphy1(filename);
+    std::cin.get();
+	return 0;
+}

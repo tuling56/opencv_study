@@ -20,6 +20,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -94,10 +95,11 @@
     <ClCompile Include="ROI\roi.cpp" />
     <ClCompile Include="ROI\roi_mat.cpp" />
     <ClCompile Include="ROI\roi_merge.cpp" />
-    <ClCompile Include="test\colorReduce.cpp" />
-    <ClCompile Include="test\saltImage.cpp" />
     <ClCompile Include="video\frameMean.cpp" />
-    <ClCompile Include="xml\xml.cpp" />
+    <ClCompile Include="video\videolabel.cpp" />
+    <ClCompile Include="xml\xml_class.cpp" />
+    <ClCompile Include="xml\xml_read_write.cpp" />
+    <ClCompile Include="xml\xml_whole.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opencv.h" />

@@ -21,6 +21,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -33,6 +34,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\SETS\cv2410vc12\cv2410d_vc12.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -55,7 +57,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opencv_features2d2410d.lib;opencv_flann2410d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,15 +79,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="binaryzation\adaptiveThreshold.cpp" />
-    <ClCompile Include="binaryzation\binaryzation.cpp" />
+    <ClCompile Include="binaryzation\niblack.cpp" />
+    <ClCompile Include="binaryzation\threshold.cpp" />
     <ClCompile Include="circle\hough_circle.cpp" />
-    <ClCompile Include="contour\contour.cpp" />
-    <ClCompile Include="contour\contour3.cpp" />
-    <ClCompile Include="contour\contour4.cpp" />
-    <ClCompile Include="contour\contours.c" />
-    <ClCompile Include="contour\cvContours.cpp" />
+    <ClCompile Include="contour\contour1_2.cpp" />
+    <ClCompile Include="contour\contour3_4.cpp" />
+    <ClCompile Include="contour\contours_g1.c" />
+    <ClCompile Include="contour\contours_g2.cpp" />
+    <ClCompile Include="contour\contour_area.cpp" />
+    <ClCompile Include="contour\contours_g1.1.cpp" />
     <ClCompile Include="contour\minarea.cpp" />
     <ClCompile Include="contour\moments_demo.cpp" />
+    <ClCompile Include="contour\shapeDescriptor.cpp" />
     <ClCompile Include="edge\canny_trackbar.cpp" />
     <ClCompile Include="edge\edge_trackbar.cpp" />
     <ClCompile Include="edge\edge_whole.cpp" />
@@ -93,15 +98,23 @@
     <ClCompile Include="filtersmooth\filter_main.cpp" />
     <ClCompile Include="filtersmooth\maxMinFilter.cpp" />
     <ClCompile Include="filtersmooth\whole.cpp" />
-    <ClCompile Include="linear\hough_line.cpp" />
-    <ClCompile Include="linear\line_dete.cpp" />
+    <ClCompile Include="linear\houghlines.cpp" />
+    <ClCompile Include="linear\stdHoughLine.cpp" />
+    <ClCompile Include="linear\lsd.c" />
+    <ClCompile Include="linear\lsdLineDete.cpp" />
+    <ClCompile Include="linear\warpHoughLine.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="saliency\saliency.cpp" />
+    <ClCompile Include="segment\GrabcutDemo.cpp" />
     <ClCompile Include="segment\meanshift_smooth_segmentation.cpp" />
+    <ClCompile Include="segment\snake.cpp" />
+    <ClCompile Include="segment\snake1.cpp" />
     <ClCompile Include="segment\watershed.cpp" />
     <ClCompile Include="square\sqaure_detection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="detection.h" />
+    <ClInclude Include="warpHoughLine.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -2,14 +2,14 @@
 #include <cv.h>  
 #include <iostream>  
 #include <iomanip>  
-#include "opencv.h"
+#include "../opencv.h"
 
 using namespace std; 
 
 
 
 /**********写XML***********/  
-int xml_read_write()  
+int xml_write()  
 {  
 	int a=1;  
 	float b=2.;  
@@ -36,6 +36,38 @@ int xml_read_write()
 	return 0;
 	
 } 
+
+/**********写XML***********/
+int opencv_xml_write(char* photoname, const Localtion areainfo)
+{
+	// 创建文件存储对象  
+	CvFileStorage *fs = cvOpenFileStorage("location.xml", 0, CV_STORAGE_WRITE, "UTF-8");
+	cvWriteComment(fs, "test xml file", 1);
+
+	// 开始写结构，类型是图map，也就是有名字的无序节点集合  
+	/*
+	const char *attr[4]={"imagename=photoname","width=1","height=2","AreaNum=9"};
+	CvAttrList imageinfo=cvAttrList(attr,0);
+	*/
+	cvStartWriteStruct(fs, "Tagset", CV_NODE_MAP, "id_size", cvAttrList(0, 0));
+
+	cvWriteComment(fs, "text area info", 1);
+	cvWriteString(fs, "IMG", photoname);
+	cvWriteInt(fs, "Height", 18);
+	cvWriteInt(fs, "Width", 18);
+
+	cvWriteInt(fs, "areas_num", 4);
+	int area_info[4] = { areainfo.lx, areainfo.ly, areainfo.rx, areainfo.ry };
+	// 开始写结构，类型是序列sequence，无名字的有序节点集合  
+	cvStartWriteStruct(fs, "area_coor", CV_NODE_SEQ);
+	cvWriteRawData(fs, area_info, 4, "i");
+	cvEndWriteStruct(fs);
+
+
+	cvEndWriteStruct(fs);
+	cvReleaseFileStorage(&fs);
+	return 0;
+}
 
 /**********读取XML***********/  
 int xml_mat_read()
@@ -64,34 +96,12 @@ int xml_mat_read()
 
 }
 
-/**********写XML***********/  
-int opencv_xml_write(char* photoname,const Localtion areainfo)  
-{  
-	// 创建文件存储对象  
-	CvFileStorage *fs=cvOpenFileStorage("location.xml",0,CV_STORAGE_WRITE,"UTF-8");   
-	cvWriteComment(fs,"test xml file",1);  
-
-	// 开始写结构，类型是图map，也就是有名字的无序节点集合  
-	/*
-	const char *attr[4]={"imagename=photoname","width=1","height=2","AreaNum=9"};
-	CvAttrList imageinfo=cvAttrList(attr,0);
-	*/
-	cvStartWriteStruct(fs,"Tagset",CV_NODE_MAP,"id_size",cvAttrList(0,0));  
-	
-	cvWriteComment(fs,"text area info",1);  
-	cvWriteString(fs,"IMG",photoname);
-	cvWriteInt(fs,"Height",18); 
-	cvWriteInt(fs,"Width",18);  
  
-	cvWriteInt(fs,"areas_num",4);  
-	int area_info[4]={areainfo.lx,areainfo.ly,areainfo.rx,areainfo.ry};  
-	// 开始写结构，类型是序列sequence，无名字的有序节点集合  
-    cvStartWriteStruct(fs,"area_coor",CV_NODE_SEQ);  
-	cvWriteRawData(fs,area_info,4,"i");   
-	cvEndWriteStruct(fs);  
-	 
- 
-	cvEndWriteStruct(fs);   
-	cvReleaseFileStorage(&fs);  
-	return 0;
-}   
+//功能测试区
+//int main(int argc,char**argv)
+//{
+//    
+//	xml_write();
+//    std::cin.get();
+//	return 0;
+//}

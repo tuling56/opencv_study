@@ -94,9 +94,6 @@ int matrixNorm(Mat &src)
 	return 0;
 }
 
-/f
-
-
 //¹¦ÄÜ²âÊÔÇø
 //int main()
 //{

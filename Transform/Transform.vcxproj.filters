@@ -13,19 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="源文件\affine">
+      <UniqueIdentifier>{4ced9797-cb59-4f57-ad5e-d43eaa33cced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\perspective">
+      <UniqueIdentifier>{0b8d3765-6936-48dc-bc9d-6d021c248ffd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="affine.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="perspective.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="source\perspective\rectAutoRectify.cpp">
+      <Filter>源文件\perspective</Filter>
     </ClCompile>
-    <ClCompile Include="透视矫正\rectAutoRectify.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="source\perspective\perspective.cpp">
+      <Filter>源文件\perspective</Filter>
+    </ClCompile>
+    <ClCompile Include="source\perspective\homograpyPerspective.cpp">
+      <Filter>源文件\perspective</Filter>
+    </ClCompile>
+    <ClCompile Include="source\affine\rotateimg2.cpp">
+      <Filter>源文件\affine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

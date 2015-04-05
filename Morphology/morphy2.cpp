@@ -1,9 +1,12 @@
-/*
- *功能：形态学膨胀/腐蚀，开/闭，角点检测，边缘检测
- *来自：
- *Info:[11/8/2014 jmy]
- */
-
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	morphy2.cpp
+* Brief: 形态学膨胀/腐蚀，开/闭，角点检测，边缘检测和文本定位   OpenCV2.0结构
+* Source:
+* Status: 未完成，还存在问题
+* Date:	[3/7/2015 jmy]
+************************************************************************/
 #include <stdio.h>
 #include <opencv2\core\core.hpp>
 #include <opencv2\highgui\highgui.hpp>
@@ -134,9 +137,15 @@ int morphy_corner()
 	return 0;
 }
 
+
+/*
+ *	功能：利用形态学的边缘检测进行文本定位
+ *  参数：
+ *  状态：效果还是不错的
+ */
 int morphy_apply_location()
 {
-	Mat cimage=imread("PicVideo/car.png");
+	Mat cimage=imread("samples//text_dete//text_img0290.png");
     Mat image;
     cvtColor(cimage,image,CV_BGR2GRAY);
      
@@ -147,12 +156,36 @@ int morphy_apply_location()
     threshold(result,result,255*(0.2),255,THRESH_BINARY);
     //水平方向闭运算
     morphologyEx(result,result,MORPH_CLOSE,Mat(1,20,CV_8U,Scalar(1)));
-    //竖起方向闭运算
+    //竖直方向闭运算
     morphologyEx(result,result,MORPH_CLOSE,Mat(10,1,CV_8U,Scalar(1)));
 
 	namedWindow("apply");
 	imshow("apply",result);
+	//imwrite("dete.png", result);
 
     waitKey();
 	return 0;
 }
+
+//功能测试区
+//int main(int argc,char**argv)
+//{
+//    
+//	//morphy_apply_location();
+//	Mat src = imread("samples//canny.png");
+//	Mat gray;
+//	cvtColor(src, gray, CV_BGR2GRAY);
+//	//阈值化
+//	threshold(gray,gray, 255 * (0.2), 255, THRESH_BINARY);
+//
+//	//水平方向闭运算
+//	morphologyEx(gray,gray, MORPH_CLOSE, Mat(1, 20, CV_8U, Scalar(1)));
+//	//竖直方向闭运算
+//	morphologyEx(gray,gray, MORPH_CLOSE, Mat(10, 1, CV_8U, Scalar(1)));
+//
+//	namedWindow("apply");
+//	imshow("apply", gray);
+//
+//	cv::waitKey();
+//	return 0;
+//}

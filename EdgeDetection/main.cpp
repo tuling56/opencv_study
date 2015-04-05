@@ -1,3 +1,13 @@
+/************************************************************************
+* Copyright(c) 2015 tuling56
+*
+* File:	main.cpp
+* Brief: 检测函数的主入口，测试集成功能时使用
+* Source:
+* Status: 
+* Date:	[3/7/2015 jmy]
+************************************************************************/
+
 #include "detection.h"
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -9,7 +19,7 @@ using namespace cv;
 int main_test(int argc, char* argv[])
 {
 	IplImage *src=cvLoadImage("video_12.JPG");
-	char*filename="samples/test.jpg";
+	char*filename="samples/grabCut.png";
 	//-------------------------------【边缘检测】------------------------------
 	//	描述:
 	//-------------------------------------------------------------------------
@@ -56,10 +66,10 @@ int main_test(int argc, char* argv[])
 	//adaptiveThreshold(filename);
 
 
-	//-----------------------------------【图像滤波和平滑】-----------------------------
+	//-----------------------------------【图像分割】-----------------------------
 	//描述：
 	//-------------------------------------------------------------------------
-	//meanshift_smooth_segmentation();
+	meanshift_smooth_segmentation();//该函数里含有特殊的平滑成分
 	
 	
 	return 0;
