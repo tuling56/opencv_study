@@ -7,7 +7,6 @@
 * Status: 
 * Date:	[3/17/2015 jmy]
 ************************************************************************/
-
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
 
@@ -293,13 +292,14 @@ static void on_mouse(int event, int x, int y, int flags, void* param)
 	gcapp.mouseClick(event, x, y, flags, param);
 }
 
+
+//¹¦ÄÜ²âÊÔÇø
 int GrabCutDemo(int argc, char** argv)
 {
 
-	string filename = "samples//grabcut_segment.png";
+	string filename = "samples//segment//6.bmp";
 	Mat image = imread(filename, 1);
-	if (image.empty())
-	{
+	if (image.empty()){
 		cout << "\n Durn, couldn't read image filename " << filename << endl;
 		return 1;
 	}

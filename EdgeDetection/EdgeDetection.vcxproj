@@ -78,7 +78,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="binaryzation\adaptiveThreshold.cpp" />
     <ClCompile Include="binaryzation\niblack.cpp" />
     <ClCompile Include="binaryzation\threshold.cpp" />
     <ClCompile Include="circle\hough_circle.cpp" />
@@ -90,7 +89,8 @@
     <ClCompile Include="contour\contours_g1.1.cpp" />
     <ClCompile Include="contour\minarea.cpp" />
     <ClCompile Include="contour\moments_demo.cpp" />
-    <ClCompile Include="contour\shapeDescriptor.cpp" />
+    <ClCompile Include="contour\shapeDescriptor1.cpp" />
+    <ClCompile Include="contour\shapeDescriptor2.cpp" />
     <ClCompile Include="edge\canny_trackbar.cpp" />
     <ClCompile Include="edge\edge_trackbar.cpp" />
     <ClCompile Include="edge\edge_whole.cpp" />
@@ -105,10 +105,9 @@
     <ClCompile Include="linear\warpHoughLine.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="saliency\saliency.cpp" />
-    <ClCompile Include="segment\GrabcutDemo.cpp" />
-    <ClCompile Include="segment\meanshift_smooth_segmentation.cpp" />
-    <ClCompile Include="segment\snake.cpp" />
-    <ClCompile Include="segment\snake1.cpp" />
+    <ClCompile Include="segment\grabcutDemo.cpp" />
+    <ClCompile Include="segment\maxEntropy.cpp" />
+    <ClCompile Include="segment\meanshift.cpp" />
     <ClCompile Include="segment\watershed.cpp" />
     <ClCompile Include="square\sqaure_detection.cpp" />
   </ItemGroup>

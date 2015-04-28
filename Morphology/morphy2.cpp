@@ -171,12 +171,17 @@ int morphy_apply_location()
 //int main(int argc,char**argv)
 //{
 //    
-//	//morphy_apply_location();
 //	Mat src = imread("samples//canny.png");
 //	Mat gray;
 //	cvtColor(src, gray, CV_BGR2GRAY);
 //	//阈值化
 //	threshold(gray,gray, 255 * (0.2), 255, THRESH_BINARY);
+//	Mat erodeimg;
+//	erode(gray,erodeimg, MORPH_RECT);
+//	Mat diff;
+//	absdiff(gray, erodeimg, diff);
+//
+//
 //
 //	//水平方向闭运算
 //	morphologyEx(gray,gray, MORPH_CLOSE, Mat(1, 20, CV_8U, Scalar(1)));

@@ -100,6 +100,39 @@ int mutiframeMean(char*videoname)
 }
 
 
+/*
+ *	功能：图像添加噪声后和原来图像的差
+ *  参数：
+ *  状态：
+ */
+int msubstact3()
+{
+	Mat src = imread("samples//scene//111-1113_IMG.JPG");
+	//为dst添加噪声
+	RNG rnd = theRNG();
+	for (int k = 0; k < 200; ++k)
+	{
+		int i = rand() % src.rows;
+		int j = rand() % src.cols;
+		src.at<Vec3b>(i, j)[0] = rnd(255);
+		src.at<Vec3b>(i, j)[1] = rnd(255);
+		src.at<Vec3b>(i, j)[2] = rnd(255);
+	}
+
+	//meanshift_smooth_segmentation();
+	Mat dst;// = src.clone();
+	Mat diff;
+
+	//pyrMeanShiftFiltering(src, dst, 3, 2, 1);
+	GaussianBlur(src, dst, Size(5, 5), 1.2, 1.2);
+	absdiff(src, dst, diff);
+	imshow("dst", dst);
+
+	imshow("diff", diff);
+	waitKey();
+
+	return 0;
+}
 
 
 

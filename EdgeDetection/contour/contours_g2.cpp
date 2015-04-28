@@ -34,6 +34,7 @@ int g2_levels = 3;
 vector<vector<Point> > contours;
 vector<Vec4i> hierarchy;
 
+//这里体现了轮廓的层级
 static void on_trackbar(int, void*)
 {
     Mat cnt_img = Mat::zeros(w, w, CV_8UC3);

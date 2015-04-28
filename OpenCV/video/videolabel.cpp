@@ -260,46 +260,46 @@ int videolabel(char*videoname,char*result)
 
 
 //功能测试区
-int main(int argc,char**argv)
-{
-	char*videoname = "samples/video/test_o2.mp4";
-	char *result = "config.txt";
-	char*configname = "config.xml";
-	
-	//(1)视频标注
-	videolabel(videoname, result);
-	
-	//(2)写配置文件  
-	fs = cvOpenFileStorage(configname, 0, CV_STORAGE_WRITE, "UTF-8");
-	cvWriteComment(fs, "config info xml file", 1);
-	for (vector<s_unitInfo>::iterator it = config.begin(); it != config.end();++it)
-	{
-		xml_write(it->meaning, it->loc);
-	}
-	cvReleaseFileStorage(&fs);
-    
-	//（3）读配置文件
-	fs = cvOpenFileStorage(configname, 0, CV_STORAGE_READ, "UTF-8");
-	//xml_read(fs, "ww");
-	char* means[20] = { "ww", "erz", "vv" }; //配置文件的意义名事先定义
-	for (int i = 0; i < 20;++i)
-    {
-		if (means[i])
-		{
-			Rect loc=xml_read(fs, means[i]);
-			strcpy(meanloc.meaning, means[i]);
-			meanloc.loc = loc;
-			config.push_back(meanloc);//最后所有的信息都被保存在config这个vector中
-		}
-		else
-			break;
-    }
-	cvReleaseFileStorage(&fs);
-
-	//(4)测试对区域的操纵
-	//根据指定区域的识别结果，删减对应的位置信息，
-
-
-	getchar();
-	return 0;
-}
+//int main(int argc,char**argv)
+//{
+//	char*videoname = "samples/video/test_o2.mp4";
+//	char *result = "config.txt";
+//	char*configname = "config.xml";
+//	
+//	//(1)视频标注
+//	videolabel(videoname, result);
+//	
+//	//(2)写配置文件  
+//	fs = cvOpenFileStorage(configname, 0, CV_STORAGE_WRITE, "UTF-8");
+//	cvWriteComment(fs, "config info xml file", 1);
+//	for (vector<s_unitInfo>::iterator it = config.begin(); it != config.end();++it)
+//	{
+//		xml_write(it->meaning, it->loc);
+//	}
+//	cvReleaseFileStorage(&fs);
+//    
+//	//（3）读配置文件
+//	fs = cvOpenFileStorage(configname, 0, CV_STORAGE_READ, "UTF-8");
+//	//xml_read(fs, "ww");
+//	char* means[20] = { "ww", "erz", "vv" }; //配置文件的意义名事先定义
+//	for (int i = 0; i < 20;++i)
+//    {
+//		if (means[i])
+//		{
+//			Rect loc=xml_read(fs, means[i]);
+//			strcpy(meanloc.meaning, means[i]);
+//			meanloc.loc = loc;
+//			config.push_back(meanloc);//最后所有的信息都被保存在config这个vector中
+//		}
+//		else
+//			break;
+//    }
+//	cvReleaseFileStorage(&fs);
+//
+//	//(4)测试对区域的操纵
+//	//根据指定区域的识别结果，删减对应的位置信息，
+//
+//
+//	getchar();
+//	return 0;
+//}

@@ -16,7 +16,7 @@
 using namespace cv;
 
 
-int main_test(int argc, char* argv[])
+int main_(int argc, char* argv[])
 {
 	IplImage *src=cvLoadImage("video_12.JPG");
 	char*filename="samples/grabCut.png";
@@ -69,7 +69,7 @@ int main_test(int argc, char* argv[])
 	//-----------------------------------【图像分割】-----------------------------
 	//描述：
 	//-------------------------------------------------------------------------
-	meanshift_smooth_segmentation();//该函数里含有特殊的平滑成分
+	//meanshift_smooth_segmentation();//该函数里含有特殊的平滑成分
 	
 	
 	return 0;

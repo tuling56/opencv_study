@@ -51,9 +51,6 @@
     <ClCompile Include="edge\canny_trackbar.cpp">
       <Filter>源文件\edge</Filter>
     </ClCompile>
-    <ClCompile Include="binaryzation\adaptiveThreshold.cpp">
-      <Filter>源文件\binaryzation</Filter>
-    </ClCompile>
     <ClCompile Include="circle\hough_circle.cpp">
       <Filter>源文件\circle</Filter>
     </ClCompile>
@@ -74,9 +71,6 @@
     </ClCompile>
     <ClCompile Include="contour\moments_demo.cpp">
       <Filter>源文件\contour</Filter>
-    </ClCompile>
-    <ClCompile Include="segment\meanshift_smooth_segmentation.cpp">
-      <Filter>源文件\segment</Filter>
     </ClCompile>
     <ClCompile Include="segment\watershed.cpp">
       <Filter>源文件\segment</Filter>
@@ -108,15 +102,6 @@
     <ClCompile Include="binaryzation\threshold.cpp">
       <Filter>源文件\binaryzation</Filter>
     </ClCompile>
-    <ClCompile Include="segment\GrabcutDemo.cpp">
-      <Filter>源文件\segment</Filter>
-    </ClCompile>
-    <ClCompile Include="segment\snake1.cpp">
-      <Filter>源文件\segment</Filter>
-    </ClCompile>
-    <ClCompile Include="segment\snake.cpp">
-      <Filter>源文件\segment</Filter>
-    </ClCompile>
     <ClCompile Include="saliency\saliency.cpp">
       <Filter>源文件\saliency</Filter>
     </ClCompile>
@@ -138,8 +123,20 @@
     <ClCompile Include="contour\contour1_2.cpp">
       <Filter>源文件\contour</Filter>
     </ClCompile>
-    <ClCompile Include="contour\shapeDescriptor.cpp">
+    <ClCompile Include="segment\maxEntropy.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\shapeDescriptor1.cpp">
       <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\grabcutDemo.cpp">
+      <Filter>源文件\segment</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\shapeDescriptor2.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
+    <ClCompile Include="segment\meanshift.cpp">
+      <Filter>源文件\segment</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

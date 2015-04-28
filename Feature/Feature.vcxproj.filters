@@ -28,6 +28,9 @@
     <Filter Include="源文件\hog">
       <UniqueIdentifier>{3e60c0aa-ff79-465c-af0e-a000f4374113}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\blob">
+      <UniqueIdentifier>{b722e379-b2df-4b44-80cd-7821063d02db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -98,6 +101,9 @@
     </ClCompile>
     <ClCompile Include="hog\peopledetect.cpp">
       <Filter>源文件\hog</Filter>
+    </ClCompile>
+    <ClCompile Include="blob\blob.cpp">
+      <Filter>源文件\blob</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
-//Function：MeanShift做图像平滑，然后分割
-//Source:OpenCV自带例程
+//Function：MeanShift做图像平滑，然后利用漫水算法进行图像分割
+//Source:OpenCV自带例程:http://www.cnblogs.com/tornadomeet/archive/2012/06/06/2538695.html
 //Status:在空间金字塔中使用基于颜色的meanshift算法进行图像分割
 //Improve:
 //Info:[11/21/2014 jmy]
@@ -21,7 +21,7 @@ using namespace std;
 //全局变量定义区
 string winName = "meanshift";
 int spatialRad, colorRad, maxPyrLevel;
-Mat meandemoimg, res;
+Mat meanshiftsegment, res;
 
 
 static void help(char** argv)
@@ -32,8 +32,6 @@ static void help(char** argv)
     << "of the mean shift window as well as the number of pyramid reduction levels explored\n"
     << endl;
 }
-
-
 
 
 //This colors the segmentations,分割结果的彩色显示,利用了漫水算法
@@ -49,6 +47,7 @@ static void floodFillPostprocess( Mat& img, const Scalar& colorDiff=Scalar::all(
             if( mask.at<uchar>(y+1, x+1) == 0 )
             {
                 Scalar newVal( rng(256), rng(256), rng(256) );
+				//逐点漫水
                 floodFill( img, mask, Point(x,y), newVal, 0, colorDiff, colorDiff );
             }
         }
@@ -61,32 +60,33 @@ static void meanShiftSegmentation( int, void* )
     cout << "spatialRad=" << spatialRad << "; "
          << "colorRad=" << colorRad << "; "
          << "maxPyrLevel=" << maxPyrLevel << endl;
-    pyrMeanShiftFiltering( meandemoimg, res, spatialRad, colorRad, maxPyrLevel ); //滤波部分，可以仔细参考下
+	
+	//滤波部分，可以仔细参考下,其实里面也完成了分割
+    pyrMeanShiftFiltering( meanshiftsegment, res, spatialRad, colorRad, maxPyrLevel ); 
+	imshow("Res",res);
 
 	//彩色Sobel边缘检测部分，分成平滑和非平滑的，做对比
 	Mat imgsobel,imgsobel_no;
-	Sobel(res,imgsobel,-1,1,1,3,1,0,BORDER_DEFAULT); 
-	Sobel(meandemoimg,imgsobel_no,-1,1,1,3,1,0,BORDER_DEFAULT); 
+	Sobel(res,imgsobel,-1,1,1,3,1,0,BORDER_DEFAULT);  //res是平滑后的
+	Sobel(meanshiftsegment,imgsobel_no,-1,1,1,3,1,0,BORDER_DEFAULT); //meanshifitsegment是原始没有平滑的 
 	imshow("Smooth",imgsobel);
 	imshow("NoSmooth",imgsobel_no);
 
-
+	//显示分割结果
     floodFillPostprocess( res, Scalar::all(2) );
     imshow( winName, res );
 }
 
-int meanshift_smooth_segmentation()
+
+int meanshift_smooth_segmentation(Mat src)
 {
    /*
-    if( argc !=2 )
-    {
+    if( argc !=2 ) {
         help(argv);
         return -1;
     }
    */
-    meandemoimg = imread("samples//grabCut.png");
-    if( meandemoimg.empty() )
-    {
+    if( src.empty() ){
         printf("can't load the img\n");
         getchar();
         return -1;
@@ -108,31 +108,10 @@ int meanshift_smooth_segmentation()
 }
 
 //功能测试区
-//int main()
+//int main(int argc, char**argv)
 //{
-//	Mat src = imread("samples//scene//111-1113_IMG.JPG");
-//	//为dst添加噪声
-//	RNG rnd = theRNG();
-//	for (int k = 0; k < 200; ++k)
-//	{
-//		int i = rand() % src.rows;
-//		int j = rand() % src.cols;
-//		src.at<Vec3b>(i, j)[0] = rnd(255);
-//		src.at<Vec3b>(i, j)[1] = rnd(255);
-//		src.at<Vec3b>(i, j)[2] = rnd(255);
-//	}
-//
-//	//meanshift_smooth_segmentation();
-//	Mat dst;// = src.clone();
-//	Mat diff;
-//
-//	//pyrMeanShiftFiltering(src, dst, 3, 2, 1);
-//	GaussianBlur(src, dst, Size(5,5),1.2,1.2);
-//	absdiff(src, dst, diff);
-//	imshow("dst", dst);
-//
-//	imshow("diff",diff);
-//	waitKey();
-//
+//	meanshiftsegment = imread("samples\\segment\\meanshift.jpg");
+//	meanshift_smooth_segmentation(meanshiftsegment);
+//	std::cin.get();
 //	return 0;
 //}

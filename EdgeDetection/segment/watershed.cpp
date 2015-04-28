@@ -36,6 +36,11 @@ static void help()
 Mat markerMask, watershedimg;
 Point prevPt(-1, -1);
 
+/*
+ *	功能：标记
+ *  参数：
+ *  状态：
+ */
 static void onMouse( int event, int x, int y, int flags, void* )
 {
     if( x < 0 || x >= watershedimg.cols || y < 0 || y >= watershedimg.rows ) //不在图像区域内
@@ -57,10 +62,14 @@ static void onMouse( int event, int x, int y, int flags, void* )
     }
 }
 
+/*
+ *	功能：分水岭算法主体
+ *  参数：
+ *  状态：
+ */
 int mwatershed( int argc, char** argv )
-//int main(int argc, char** argv)
 {
-    char* filename = argc >= 2 ? argv[1] : (char*)"samples\\grabCut.png";
+    char* filename = argc >= 2 ? argv[1] : (char*)"samples\\snake1.jpg";
     Mat img0 = imread(filename, 1), imgGray;
 
     if( img0.empty() ) {
@@ -85,9 +94,9 @@ int mwatershed( int argc, char** argv )
 
         if( (char)c == 'r' )
         {
-            markerMask = Scalar::all(0);
-            img0.copyTo(watershedimg);
-            imshow( "image", watershedimg );//把原图复制过去
+            markerMask = Scalar::all(0); //掩码清空
+            img0.copyTo(watershedimg);   //把原图复制过去
+            imshow( "image", watershedimg );
         }
 
         if( (char)c == 'w' || (char)c == ' ' )
@@ -97,47 +106,46 @@ int mwatershed( int argc, char** argv )
             vector<Vec4i> hierarchy;
 		    //注意是在markerMask上寻找轮廓
             findContours(markerMask, contours, hierarchy, CV_RETR_CCOMP, CV_CHAIN_APPROX_SIMPLE);
-
-            if( contours.empty() )
-                continue;
-            Mat markers(markerMask.size(), CV_32S);
+            if( contours.empty() )   continue;
+            
+			Mat markers(markerMask.size(), CV_32S);
             markers = Scalar::all(0);
             int idx = 0;
             for( ; idx >= 0; idx = hierarchy[idx][0], compCount++ ) //统计的是最外层的轮廓
-                drawContours(markers, contours, idx, Scalar::all(compCount+1), -1, 8, hierarchy, INT_MAX);
-			imshow("markers", markers);
+                drawContours(markers, contours, idx,                //双成轮廓的外轮廓
+				             Scalar::all(compCount+1), -1, 8, hierarchy, INT_MAX);
+			imshow("markers", markers); //markers是轮廓信息
+            if( compCount == 0 )     continue;
 
-            if( compCount == 0 )
-                continue;
-
-			vector<Vec3b> colorTab;
-            for( i = 0; i < compCount; i++ )
-            {
-                int b = theRNG().uniform(0, 255);
-                int g = theRNG().uniform(0, 255);
-                int r = theRNG().uniform(0, 255);
-                colorTab.push_back(Vec3b((uchar)b, (uchar)g, (uchar)r));
-            }
-
-            double t = (double)getTickCount();
-            watershed( img0, markers );    //*核心*函数，markers是通过findCountour进行标记
+			//分水岭算法
+		    double t = (double)getTickCount();
+			//*核心*函数，markers是通过findCountour进行标记,经过漫水后markers里存的是区域
+            watershed( img0, markers );   
             t = (double)getTickCount() - t;
             printf( "execution time = %gms\n", t*1000./getTickFrequency() );
 
-            Mat wshed(markers.size(), CV_8UC3);
-
             // paint the watershed image
+			Mat wshed(markers.size(), CV_8UC3);
+			vector<Vec3b> colorTab;
+			for (i = 0; i < compCount; i++)
+			{
+				int b = theRNG().uniform(0, 255);
+				int g = theRNG().uniform(0, 255);
+				int r = theRNG().uniform(0, 255);
+				colorTab.push_back(Vec3b((uchar)b, (uchar)g, (uchar)r));
+			}
+
             for( i = 0; i < markers.rows; i++ )
 			{ 
                 for( j = 0; j < markers.cols; j++ )
                 {
                     int index = markers.at<int>(i,j);
                     if( index == -1 )
-                        wshed.at<Vec3b>(i,j) = Vec3b(255,255,255);
+                        wshed.at<Vec3b>(i,j) = Vec3b(255,255,255); 
                     else if( index <= 0 || index > compCount )
                         wshed.at<Vec3b>(i,j) = Vec3b(0,0,0);
                     else
-                        wshed.at<Vec3b>(i,j) = colorTab[index - 1];
+                        wshed.at<Vec3b>(i,j) = colorTab[index - 1]; //分割出区域用不同颜色标注
                 }
 			}
             wshed = wshed*0.5 + imgGray*0.5;
@@ -149,10 +157,10 @@ int mwatershed( int argc, char** argv )
 }
 
 //功能测试区
-//int main(int argc,char**argv)
+//int main(int argc, char**argv)
 //{
 //	mwatershed(0, NULL);
 //
-//    std::cin.get();
+//	std::cin.get();
 //	return 0;
 //}

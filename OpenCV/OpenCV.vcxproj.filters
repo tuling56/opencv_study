@@ -108,6 +108,9 @@
     <ClCompile Include="xml\xml_class.cpp">
       <Filter>源文件\xml</Filter>
     </ClCompile>
+    <ClCompile Include="detection\backgroundRemove.cpp">
+      <Filter>源文件\detection</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="opencv.h">

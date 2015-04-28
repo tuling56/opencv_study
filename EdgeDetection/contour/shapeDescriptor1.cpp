@@ -1,6 +1,6 @@
 //Function： 轮廓的长度，面积，外接矩形(平行坐标轴),旋转外接矩形，外接圆,椭圆
 //Source: http://blog.csdn.net/fdl19881/article/details/6730112
-//Status: 形状描述子的计算
+//Status: 轮廓形状描述子的计算，OpenCV1.0结构
 //Improve:改写成Mat结构
 //Info:[11/15/2014 jmy]
 
@@ -11,7 +11,7 @@
 
 using namespace std;
 
-int shapeDescriptor()
+int shapeDescriptor1()
 {
 	IplImage *src = cvLoadImage("samples\\contour\\length_area.jpg",CV_LOAD_IMAGE_GRAYSCALE);
 	if (!src){

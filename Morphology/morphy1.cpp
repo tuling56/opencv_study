@@ -7,7 +7,6 @@
 * Status: 
 * Date:	[3/7/2015 jmy]
 ************************************************************************/
-
 #include "cv.h"  
 #include "highgui.h"  
 #include <stdlib.h>  
@@ -16,6 +15,7 @@
 IplImage *src=0;  
 IplImage *dst=0;  
 IplConvKernel *element=0;//声明一个具体的结构元素  
+
 int element_shape=CV_SHAPE_RECT;//长方形形状类的元素  
 int max_iters=10;  
 int open_close_pos=0;  
@@ -107,10 +107,10 @@ int morphy1(char*filename)
 }  
 
 //功能测试区
-int main(int argc,char**argv)
-{
-	char*filename = "C:\\Users\\jmy\\Desktop\\1.png";
-	morphy1(filename);
-    std::cin.get();
-	return 0;
-}
+//int main(int argc,char**argv)
+//{
+//	char*filename = "C:\\Users\\jmy\\Desktop\\1.png";
+//	morphy1(filename);
+//    std::cin.get();
+//	return 0;
+//}

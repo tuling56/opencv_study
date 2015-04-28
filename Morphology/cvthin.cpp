@@ -1,8 +1,7 @@
-/************************************************************************/
- /* 功能：图像细化
-  * 来自于：http://blog.csdn.net/byxdaz/article/details/5642669
-  /
-/************************************************************************/
+/************************************************************************
+ * 功能：图像细化
+ * 来自于：http://blog.csdn.net/byxdaz/article/details/5642669
+************************************************************************/
 
 #include <cv.h>
 #include <highgui.h>
@@ -198,7 +197,7 @@ int thin(char*input)
 			}
 		}
 	}
-	//cvSaveImage("c://thin.bmp",pDst);
+	cvSaveImage("thin.bmp",pDst);
 	cvShowImage("dst",pDst);
 	cvWaitKey(0);
 	cvReleaseImage(&pSrc);

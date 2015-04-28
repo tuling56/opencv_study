@@ -24,17 +24,20 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="source\perspective\rectAutoRectify.cpp">
-      <Filter>源文件\perspective</Filter>
-    </ClCompile>
-    <ClCompile Include="source\perspective\perspective.cpp">
-      <Filter>源文件\perspective</Filter>
-    </ClCompile>
     <ClCompile Include="source\perspective\homograpyPerspective.cpp">
       <Filter>源文件\perspective</Filter>
     </ClCompile>
     <ClCompile Include="source\affine\rotateimg2.cpp">
       <Filter>源文件\affine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\perspective\perspectiveAutoRectify.cpp">
+      <Filter>源文件\perspective</Filter>
+    </ClCompile>
+    <ClCompile Include="source\perspective\handPerspective.cpp">
+      <Filter>源文件\perspective</Filter>
+    </ClCompile>
+    <ClCompile Include="source\perspective\vanishing_points.cpp">
+      <Filter>源文件\perspective</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

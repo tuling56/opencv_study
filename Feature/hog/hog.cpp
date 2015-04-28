@@ -76,10 +76,10 @@ int hog_feature(string filename)
 
 
 //¹¦ÄÜ²âÊÔÇø
-int main(int argc,char**argv)
-{
-	hog_feature("samples//zimu.jpg");
-
-    std::cin.get();
-	return 0;
-}
+//int main(int argc,char**argv)
+//{
+//	hog_feature("samples//zimu.jpg");
+//
+//    std::cin.get();
+//	return 0;
+//}

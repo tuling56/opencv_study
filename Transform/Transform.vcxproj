@@ -80,8 +80,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\affine\rotateimg2.cpp" />
     <ClCompile Include="source\perspective\homograpyPerspective.cpp" />
-    <ClCompile Include="source\perspective\perspective.cpp" />
-    <ClCompile Include="source\perspective\rectAutoRectify.cpp" />
+    <ClCompile Include="source\perspective\handPerspective.cpp" />
+    <ClCompile Include="source\perspective\perspectiveAutoRectify.cpp" />
+    <ClCompile Include="source\perspective\vanishing_points.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="transform.h" />

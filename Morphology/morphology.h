@@ -1,9 +1,11 @@
 /************************************************************************/
 /* 函数头描述                                                    
 /************************************************************************/
+#include <string>
+#include <opencv2/opencv.hpp>
 
 int morphologyShow();//整体演示
-int morphy_whole();//整体演示，包括顶帽和黑帽变换
+int morphy_whole(std::string filename);//整体演示，包括顶帽和黑帽变换
 
 int erode_dilate();
 int open_close();

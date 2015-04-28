@@ -16,8 +16,7 @@ int homograpyPerspective()
 {
 	Mat img_object = imread("samples//box.png", IMREAD_GRAYSCALE);
 	Mat img_scene = imread("samples//box_in_scene.png", IMREAD_GRAYSCALE);
-	if (!img_object.data || !img_scene.data)
-	{
+	if (!img_object.data || !img_scene.data){
 		std::cout << " --(!) Error reading images " << std::endl; 
 		return -1;
 	}
@@ -54,7 +53,6 @@ int homograpyPerspective()
 
 	//-- Draw only "good" matches (i.e. whose distance is less than 3*min_dist )
 	std::vector< DMatch > good_matches;
-
 	for (int i = 0; i < descriptors_object.rows; i++)
 	{
 		if (matches[i].distance < 3 * min_dist)
@@ -71,7 +69,6 @@ int homograpyPerspective()
 	//-- Localize the object from img_1 in img_2
 	std::vector<Point2f> obj;
 	std::vector<Point2f> scene;
-
 	for (size_t i = 0; i < good_matches.size(); i++)
 	{
 		//-- Get the keypoints from the good matches

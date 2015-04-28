@@ -114,21 +114,22 @@ void ConnectedComponents(Mat &mask_process, int poly1_hull0, float perimScale, i
 }
 
 //功能测试区
-//int main()
-//{
-//	Mat src, mask;
-//	src = imread("samples//1.png", 0);    //以灰度图像读入
-//	imshow("src", src);
-//	
-//	mask = src > 0;     //转换为二值图像
-//	imshow("mask", mask);
-//	
-//	ConnectedComponents(mask, 1, 8.0, 1, Rect(), Point(-1, -1));    //采用多边形拟合处理
-//	imshow("out1", mask);
-//
-//	ConnectedComponents(mask, 0, 8.0, 1, Rect(), Point(-1, -1));    //c采用凸包进行处理
-//	imshow("out2", mask);
-//	waitKey(0);
-//
-//	return 0;
-//}
+int main()
+{
+	Mat src, mask;
+	src = imread("samples//2.bmp", 0);    //以灰度图像读入
+	imshow("src", src);
+	
+	mask = src > 0;     //转换为二值图像
+	imshow("mask", mask);
+	
+	ConnectedComponents(mask, 1, 8.0, 1, Rect(), Point(-1, -1));    //采用多边形拟合处理
+	imshow("out1", mask);
+	imwrite("maks.jpg", mask);
+
+	ConnectedComponents(mask, 0, 8.0, 1, Rect(), Point(-1, -1));    //c采用凸包进行处理
+	imshow("out2", mask);
+	waitKey(0);
+
+	return 0;
+}

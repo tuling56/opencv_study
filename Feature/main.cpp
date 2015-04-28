@@ -12,8 +12,6 @@ int main_()
 	//garbor(filename);
 
 	
-
-	
 	cout<<"====Ö÷³ÌÐò½áÊø========="<<endl;
 	cin.get();
 	return 0;

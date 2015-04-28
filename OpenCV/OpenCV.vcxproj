@@ -33,6 +33,7 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\SETS\cv2410vc12\cv2410d_vc12.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -87,6 +88,7 @@
     <ClCompile Include="channels\OpenCVseedfillingcol.cpp" />
     <ClCompile Include="channels\rgb2hsv.cpp" />
     <ClCompile Include="channels\SobelColor.cpp" />
+    <ClCompile Include="detection\backgroundRemove.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pyramid\pyr.cpp" />
     <ClCompile Include="region\regionGrow.cpp" />

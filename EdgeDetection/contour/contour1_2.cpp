@@ -23,13 +23,13 @@ int contour1()
 	const int IMAGE_WIDTH = 400;
 	const int IMAGE_HEIGHT = 200;
 
-	// 创建图像
+	// 创建图像,黑色背景
 	IplImage *pSrcImage = cvCreateImage(cvSize(IMAGE_WIDTH, IMAGE_HEIGHT), IPL_DEPTH_8U, 3);
 	//cvRectangle(pSrcImage, cvPoint(0, 0), cvPoint(pSrcImage->width, pSrcImage->height),
 		       // CV_RGB(255, 255, 255), CV_FILLED);// 填充成白色
 	cvSetZero(pSrcImage);
 	
-	// 画圆
+	// 画圆，大圆填白色，内圆填黑，形成白色的环带
 	CvPoint ptCircleCenter = cvPoint(IMAGE_WIDTH / 4, IMAGE_HEIGHT / 2);
 	int nRadius = 80;
 	cvCircle(pSrcImage, ptCircleCenter, nRadius, CV_RGB(255, 255, 255), CV_FILLED);
@@ -37,7 +37,7 @@ int contour1()
 	nRadius = 30;
 	cvCircle(pSrcImage, ptCircleCenter, nRadius, CV_RGB(0, 0, 0), CV_FILLED);
 	
-	// 画矩形
+	// 画矩形，大矩形填白，小矩形填黑，形成白色的框
 	CvPoint ptLeftTop = cvPoint(IMAGE_WIDTH / 2 + 20, 20);
 	CvPoint ptRightBottom = cvPoint(IMAGE_WIDTH - 20, IMAGE_HEIGHT - 20);
 	cvRectangle(pSrcImage, ptLeftTop, ptRightBottom, CV_RGB(255, 255, 255), CV_FILLED);
@@ -61,12 +61,13 @@ int contour1()
 	// 检索轮廓并返回检测到的轮廓的个数，在二值图上进行检测
 	CvMemStorage *pcvMStorage = cvCreateMemStorage();
 	CvSeq *pcvSeq = NULL;
-	cvFindContours(pBinaryImage, pcvMStorage, &pcvSeq, sizeof(CvContour), CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cvPoint(0, 0));
+	cvFindContours(pBinaryImage, pcvMStorage, &pcvSeq, sizeof(CvContour), CV_RETR_TREE, //构建层级树
+		          CV_CHAIN_APPROX_SIMPLE, cvPoint(0, 0));
 
 	// 画轮廓图
 	IplImage *pOutlineImage = cvCreateImage(cvGetSize(pSrcImage), IPL_DEPTH_8U, 3);
 	cvRectangle(pOutlineImage, cvPoint(0, 0), cvPoint(pOutlineImage->width, pOutlineImage->height), 
-		        CV_RGB(255, 255, 255), CV_FILLED);// 填充成白色
+		        CV_RGB(255, 255, 255), CV_FILLED);//填充成白色
 	int nLevels = 3;
 	/*要修改的也正是这个地方,外层红，内层绿*/
 	cvDrawContours(pOutlineImage, pcvSeq, CV_RGB(255,0,0), CV_RGB(0,255,0), nLevels, 2);
@@ -83,6 +84,7 @@ int contour1()
 	cvReleaseImage(&pGrayImage);
 	cvReleaseImage(&pBinaryImage);
 	cvReleaseImage(&pOutlineImage);
+	
 	return 0;
 }
 
@@ -105,12 +107,11 @@ void contour2_trackbar(int n_level)
 	// 转为二值图
 	IplImage *pBinaryImage = cvCreateImage(cvGetSize(greyimg), IPL_DEPTH_8U, 1);
 	cvThreshold(greyimg, pBinaryImage, 50, 255, CV_THRESH_BINARY);
-	// 显示二值图
 	cvShowImage(binWndName, pBinaryImage);
 
 	CvMemStorage* cvMStorage = cvCreateMemStorage();
-	// 检索轮廓并返回检测到的轮廓的个数
-	cvFindContours(pBinaryImage,cvMStorage, &g_pcvSeq,sizeof(CvContour),CV_RETR_EXTERNAL);
+	//检索轮廓并返回检测到的轮廓的个数，只检测外轮廓
+	cvFindContours(pBinaryImage,cvMStorage, &g_pcvSeq,sizeof(CvContour),CV_RETR_TREE);
 
 	IplImage *pOutlineImage = cvCreateImage(cvGetSize(greyimg), IPL_DEPTH_8U, 3);
 	//int _levels = 3;
@@ -125,7 +126,7 @@ void contour2_trackbar(int n_level)
 
 int contour2()
 {	
-	char*path = "samples\\contour\\contour.jpg";
+	char*path = "samples\\contour\\contours.jpg";
 	const char *pstrWindowsSrcTitle = "原图(http://blog.csdn.net/MoreWindows)";
 	const char *pstrWindowsToolBarName = "level";
 
@@ -148,8 +149,8 @@ int contour2()
 
 	// 滑动条	
 	int nThreshold = 0;
-	cvCreateTrackbar(pstrWindowsToolBarName, binWndName, &nThreshold, 7, contour2_trackbar);
-	contour2_trackbar(1);
+	cvCreateTrackbar(pstrWindowsToolBarName, binWndName, &nThreshold, 10, contour2_trackbar);
+	contour2_trackbar(1);//nlevel
 
 	cvWaitKey(0);
 
@@ -164,7 +165,7 @@ int contour2()
 //功能测试区
 //int main()
 //{
-//	contour1();
+//	//contour1();
 //	contour2();
 //	return 0;
 //}

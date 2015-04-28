@@ -17,6 +17,8 @@
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
+#include <string>
+#include <iostream>
 
 //-----------------------------------【命名空间声明部分】--------------------------------------
 //		描述：包含程序所使用的命名空间
@@ -51,7 +53,7 @@ static void ShowHelpText();
 //-----------------------------------【main( )函数】--------------------------------------------
 //		描述：控制台应用程序的入口函数，我们的程序从这里开始
 //-----------------------------------------------------------------------------------------------
-int morphy_whole()
+int morphy_whole(string filename)
 {
 	//改变console字体颜色
 	system("color 2F");  
@@ -59,8 +61,11 @@ int morphy_whole()
 	ShowHelpText();
 
 	//载入原图
-	srcImage = imread("zimu.jpg");
-	if( !srcImage.data ) { printf("Oh，no，读取srcImage错误~！ \n"); return false; }
+	srcImage = imread(filename);
+	if( !srcImage.data ){ 
+		printf("Oh，no，读取srcImage错误~！ \n"); 
+		return false; 
+	}
 
 	//显示原始图
 	namedWindow("【原始图】");
@@ -74,12 +79,12 @@ int morphy_whole()
 	//参数赋值
 	g_nOpenCloseNum=9;
 	g_nErodeDilateNum=9;
-	g_nTopBlackHatNum=2;
+	g_nTopBlackHatNum=9;
 
 	//分别为三个窗口创建滚动条
 	createTrackbar("迭代值", "【开运算/闭运算】",&g_nOpenCloseNum,g_nMaxIterationNum*2+1,on_OpenClose);
 	createTrackbar("迭代值", "【腐蚀/膨胀】",&g_nErodeDilateNum,g_nMaxIterationNum*2+1,on_ErodeDilate);
-	createTrackbar("迭代值", "【顶帽/黑帽】",&g_nTopBlackHatNum,g_nMaxIterationNum*3+1,on_TopBlackHat);
+	createTrackbar("迭代值", "【顶帽/黑帽】",&g_nTopBlackHatNum,g_nMaxIterationNum*2+1,on_TopBlackHat);
 
 	//轮询获取按键信息
 	while(1)
@@ -166,8 +171,8 @@ static void on_TopBlackHat(int, void*)
 	//自定义核
 	Mat element = getStructuringElement(g_nElementShape, Size(Absolute_offset*2+1, Absolute_offset*2+1), Point(Absolute_offset, Absolute_offset) );
 	//进行操作
-	if( offset < 0 )
-		morphologyEx(srcImage, dstImage, MORPH_TOPHAT , element);
+	if( offset < 0 ) 
+		morphologyEx(srcImage, dstImage, MORPH_TOPHAT , element); //顶帽
 	else
 		morphologyEx(srcImage, dstImage, MORPH_BLACKHAT, element);
 	//显示图像
