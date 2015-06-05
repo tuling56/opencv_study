@@ -3,11 +3,11 @@
 *
 * File:	channels_split_merge_mat.cpp
 * Brief: 各通道合图显示,在一个窗口显示多个图像
-* Source:http://wenku.baidu.com/link?url=u4sqa8GP8pw9Yj9js7ojH6xgzzAaILf6feE8fy2UuGnMX0rdWP-vL0Gj6ubZuuyji7VqhPCbpLT9-xP--800KNEueU0908ImXgxU0mfmE2O
+* Source:http://wenku.baidu.com/link?url=u4sqa8GP8pw9Yj9js7ojH6xgzzAaILf6feE8fy
+         2UuGnMX0rdWP-vL0Gj6ubZuuyji7VqhPCbpLT9-xP--800KNEueU0908ImXgxU0mfmE2O
 * Status: 
 * Date:	[11/30/2014 jmy]
 ************************************************************************/
-
 #include <cv.h>
 #include <highgui.h> 
 #include <iostream>
@@ -58,6 +58,7 @@ int channels_split_merge_mat()
 	std::vector<cv::Mat> sbgr(image.channels());  
 	//通道合成用   
 	std::vector<cv::Mat> mbgr(image.channels()); 
+	
 	//分离   
 	split(image,sbgr); //split to sbgr[0] ,sbgr[1] ,sbgr[2]  
 	//合成到显示-灰度 
@@ -80,8 +81,9 @@ int channels_split_merge_mat()
 	mbgr[1] = bk; 
 	mbgr[2] = sbgr[2]; 
 	merge(mbgr,m3);  
+	
 	//复制到显示-原图  
-	image.copyTo (m4); 
+	image.copyTo (m4); //将图像复制到原图
 	
 	//显示   
 	namedWindow( imageName,CV_WINDOW_NORMAL);

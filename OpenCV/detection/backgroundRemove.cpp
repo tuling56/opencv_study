@@ -103,22 +103,24 @@ void backgroundCorrectLeastSquaresFittingPlane(IplImage * src, IplImage * dst, I
 	cvReleaseMat(&result);
 }
 
-int main(int argc, char* argv[])
-{
-	IplImage* pImg = cvLoadImage("E:\\360YPan\\samples\\rice.png", CV_LOAD_IMAGE_GRAYSCALE);
-	IplImage * plane = cvCreateImage(cvGetSize(pImg), IPL_DEPTH_8U, 1);
-	IplImage * dst = cvCreateImage(cvGetSize(pImg), IPL_DEPTH_8U, 1);
-	
-	backgroundCorrectLeastSquaresFittingPlane(pImg, dst, plane);
 
-	cvSaveImage("result.jpg", dst);
-	cvNamedWindow("src", 1);
-	cvShowImage("src", pImg);
-	cvNamedWindow("dst", 1);
-	cvShowImage("dst", dst);
-	cvWaitKey(0); 
-	cvDestroyWindow("src");
-	cvReleaseImage(&pImg); 
-	
-	return 0;
-}
+//¹¦ÄÜ²âÊÔÇø
+//int main(int argc, char* argv[])
+//{
+//	IplImage* pImg = cvLoadImage("E:\\360YPan\\samples\\rice.png", CV_LOAD_IMAGE_GRAYSCALE);
+//	IplImage * plane = cvCreateImage(cvGetSize(pImg), IPL_DEPTH_8U, 1);
+//	IplImage * dst = cvCreateImage(cvGetSize(pImg), IPL_DEPTH_8U, 1);
+//	
+//	backgroundCorrectLeastSquaresFittingPlane(pImg, dst, plane);
+//
+//	cvSaveImage("result.jpg", dst);
+//	cvNamedWindow("src", 1);
+//	cvShowImage("src", pImg);
+//	cvNamedWindow("dst", 1);
+//	cvShowImage("dst", dst);
+//	cvWaitKey(0); 
+//	cvDestroyWindow("src");
+//	cvReleaseImage(&pImg); 
+//	
+//	return 0;
+//}

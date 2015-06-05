@@ -1,5 +1,5 @@
-//Function：来自OpenCV官网附带的教程
-//Source:
+//Function：轮廓学习,OpenCV1.0结构
+//Source:来自OpenCV官网附带的教程
 //Status:
 //Improve:
 //Info:[11/19/2014 jmy]

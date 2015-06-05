@@ -2,7 +2,7 @@
 * Copyright(c) 2015 tuling56
 *
 * File:	contour3_4.cpp
-* Brief: 轮廓单点获得和轮廓等级学习
+* Brief: 轮廓单点获得和轮廓等级学习,使用的OpenCV1.0结构
 * Source:
 * Status: 
 * Date:	[4/3/2015 jmy]

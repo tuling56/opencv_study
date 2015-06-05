@@ -1,4 +1,4 @@
-//Function： 轮廓级别的学习
+//Function： 轮廓级别的学习。OpenCV1.0结构
 //Source:http://blog.csdn.net/augusdi/article/details/9000893
 //Status: 改变的只是轮廓的绘制等级
 //Improve:

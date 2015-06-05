@@ -80,6 +80,7 @@
   <ItemGroup>
     <ClCompile Include="binaryzation\niblack.cpp" />
     <ClCompile Include="binaryzation\threshold.cpp" />
+    <ClCompile Include="binaryzation\wellner93.cpp" />
     <ClCompile Include="circle\hough_circle.cpp" />
     <ClCompile Include="contour\contour1_2.cpp" />
     <ClCompile Include="contour\contour3_4.cpp" />
@@ -87,6 +88,7 @@
     <ClCompile Include="contour\contours_g2.cpp" />
     <ClCompile Include="contour\contour_area.cpp" />
     <ClCompile Include="contour\contours_g1.1.cpp" />
+    <ClCompile Include="contour\hierarchyContours.cpp" />
     <ClCompile Include="contour\minarea.cpp" />
     <ClCompile Include="contour\moments_demo.cpp" />
     <ClCompile Include="contour\shapeDescriptor1.cpp" />

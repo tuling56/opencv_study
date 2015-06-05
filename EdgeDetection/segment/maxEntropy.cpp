@@ -7,7 +7,6 @@
 * Status: 
 * Date:	[4/6/2015 jmy]
 ************************************************************************/
-
 #include "cv.h"
 #include "highgui.h"
 
@@ -62,22 +61,22 @@ void  MaxEntropy(IplImage *src, IplImage *dst)
 }
 
 //π¶ƒ‹≤‚ ‘«¯
-int main(int argc, char* argv[])
-{
-	IplImage* src = cvLoadImage("samples\\segment\\1.png", 0);
-	if (src == NULL){
-		printf("º”‘ÿÕº∆¨ ß∞‹");
-		return -1;
-	}
-
-	cvNamedWindow("Image", 1);
-	IplImage* dst = cvCreateImage(cvGetSize(src), IPL_DEPTH_8U, 1);
-	MaxEntropy(src, dst);
-	cvShowImage("Image", dst);
-	cvWaitKey(0);
-	cvDestroyWindow("Image");
-	cvReleaseImage(&src);
-	cvReleaseImage(&dst);
-
-	return 0;
-}
+//int main(int argc, char* argv[])
+//{
+//	IplImage* src = cvLoadImage("samples\\segment\\1.png", 0);
+//	if (src == NULL){
+//		printf("º”‘ÿÕº∆¨ ß∞‹");
+//		return -1;
+//	}
+//
+//	cvNamedWindow("Image", 1);
+//	IplImage* dst = cvCreateImage(cvGetSize(src), IPL_DEPTH_8U, 1);
+//	MaxEntropy(src, dst);
+//	cvShowImage("Image", dst);
+//	cvWaitKey(0);
+//	cvDestroyWindow("Image");
+//	cvReleaseImage(&src);
+//	cvReleaseImage(&dst);
+//
+//	return 0;
+//}

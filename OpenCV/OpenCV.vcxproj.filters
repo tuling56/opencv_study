@@ -37,6 +37,9 @@
     <Filter Include="源文件\pyramid">
       <UniqueIdentifier>{a8c6ed0e-d94b-4155-83d5-103c5ac78fb9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\gui">
+      <UniqueIdentifier>{cab0e704-a01d-4a07-a222-097c72bfebe6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ROI\roi.cpp">
@@ -110,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="detection\backgroundRemove.cpp">
       <Filter>源文件\detection</Filter>
+    </ClCompile>
+    <ClCompile Include="gui\gui.cpp">
+      <Filter>源文件\gui</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -49,6 +49,7 @@ IplImage* SkinSegmentHSV(IplImage* src,IplImage* imgout)
 	cvSplit(HSV,HImg,SImg,VImg,NULL);
 	
 	int i, j;  int value = 0;
+
 	//对通道H进行处理，色相 
 	for (i = 0; i < HImg->height; i++)
 	{  

@@ -89,6 +89,7 @@
     <ClCompile Include="channels\rgb2hsv.cpp" />
     <ClCompile Include="channels\SobelColor.cpp" />
     <ClCompile Include="detection\backgroundRemove.cpp" />
+    <ClCompile Include="gui\gui.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pyramid\pyr.cpp" />
     <ClCompile Include="region\regionGrow.cpp" />

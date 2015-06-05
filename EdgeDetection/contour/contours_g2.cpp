@@ -7,8 +7,6 @@
 * Status: 在多边形拟合的的时候存在异常
 * Date:	[4/3/2015 jmy]
 ************************************************************************/
-
-
 #include "opencv2/imgproc/imgproc.hpp"
 #include "opencv2/highgui/highgui.hpp"
 #include <math.h>
@@ -42,8 +40,6 @@ static void on_trackbar(int, void*)
     drawContours( cnt_img, contours, _levels <= 0 ? 3 : -1, Scalar(128,255,255),3, CV_AA, hierarchy, std::abs(_levels));
     imshow("contours", cnt_img);
 }
-
-
 
 int contoursg2( int argc, char**)
 {
@@ -104,10 +100,10 @@ int contoursg2( int argc, char**)
 }
 
 //功能测试区
-//int main(int argc,char**argv)
+//int main(int argc, char**argv)
 //{
 //	contoursg2(1, NULL);
 //
-//    std::cin.get();
+//	std::cin.get();
 //	return 0;
 //}

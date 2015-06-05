@@ -138,6 +138,12 @@
     <ClCompile Include="segment\meanshift.cpp">
       <Filter>源文件\segment</Filter>
     </ClCompile>
+    <ClCompile Include="binaryzation\wellner93.cpp">
+      <Filter>源文件\binaryzation</Filter>
+    </ClCompile>
+    <ClCompile Include="contour\hierarchyContours.cpp">
+      <Filter>源文件\contour</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="detection.h">

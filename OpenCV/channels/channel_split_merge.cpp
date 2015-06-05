@@ -46,16 +46,16 @@ void channel_split_merge()
 		cvCvtColor(rImg,rImg3,CV_GRAY2BGR);*/
 
 
-		cvMerge(bImg,gImg,0,0,rImg3);  
+		cvMerge(bImg,gImg,0,0,rImg3);  //用图像的补色显示
 		cvMerge(bImg,0,rImg,0,gImg3);  
 		cvMerge(0,gImg,rImg,0,bImg3);  
 
-		cvShowImage( "bImg", bImg3);//显示合并图像2
+		cvShowImage( "bImg", bImg3);   //显示合并图像2
 		cvShowImage( "gImg", gImg3 );
 		cvShowImage( "rImg", rImg3);
 
 
-		cvWaitKey(0); //等待按键
+		cvWaitKey(0);
 		cvDestroyAllWindows();
 		cvReleaseImage( &input ); 
 		cvReleaseImage( &bImg );
